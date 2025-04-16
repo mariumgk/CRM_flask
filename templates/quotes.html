@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}Quotes{% endblock %}
+{% block content %}
+<h2>Quotes</h2>
+<table class="table table-striped">
+  <thead>
+    <tr><th>ID</th><th>Opportunity</th><th>Total</th><th>Status</th></tr>
+  </thead>
+  <tbody>
+    {% for q in quotes %}
+    <tr>
+      <td>{{ q[0] }}</td>
+      <td>{{ q[1] }}</td>
+      <td>${{ q[2] }}</td>
+      <td>{{ q[3] }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block title %}Edit Contact{% endblock %}
+{% block content %}
+
+<h2 class="mb-4">Edit Contact</h2>
+
+<form method="post" class="border p-4 bg-white rounded shadow-sm">
+  <div class="mb-3">
+    <label>First Name</label>
+    <input type="text" name="first_name" class="form-control" value="{{ contact[1] }}" required>
+  </div>
+  <div class="mb-3">
+    <label>Last Name</label>
+    <input type="text" name="last_name" class="form-control" value="{{ contact[2] }}" required>
+  </div>
+  <div class="mb-3">
+    <label>Email</label>
+    <input type="email" name="email" class="form-control" value="{{ contact[3] }}" required>
+  </div>
+  <div class="mb-3">
+    <label>Phone</label>
+    <input type="text" name="phone" class="form-control" value="{{ contact[4] }}">
+  </div>
+  <div class="mb-3">
+    <label>Account ID</label>
+    <input type="number" name="account_id" class="form-control" value="{{ contact[5] }}">
+  </div>
+  <div class="mb-3">
+    <label>Created By (User ID)</label>
+    <input type="number" name="created_by" class="form-control" value="{{ contact[6] }}">
+  </div>
+  <button type="submit" class="btn btn-primary">Update</button>
+  <a href="{{ url_for('contacts') }}" class="btn btn-secondary">Cancel</a>
+</form>
+
+{% endblock %}

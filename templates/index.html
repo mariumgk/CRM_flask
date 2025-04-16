@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% block title %}Dashboard{% endblock %}
+{% block content %}
+
+<h2 class="mb-4">Welcome to the CRM Dashboard</h2>
+
+<!-- KPI Cards -->
+<div class="row">
+  {% set kpis = [
+    ("Users", user_count),
+    ("Accounts", account_count),
+    ("Quotes", quote_count),
+    ("Tickets", ticket_count),
+    ("Leads", lead_count),
+    ("Tasks", task_count)
+  ] %}
+  {% for label, count in kpis %}
+  <div class="col-md-4 mb-4">
+    <div class="card shadow-sm border-0">
+      <div class="card-body">
+        <h6 class="text-muted text-uppercase">{{ label }}</h6>
+        <h3 class="fw-bold text-primary">{{ count }}</h3>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+<!-- Chart Area -->
+<div class="my-5">
+  <h5 class="mb-3">Contacts per Account</h5>
+  <canvas id="contactsChart" height="100"></canvas>
+</div>
+
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  fetch("/contacts/summary.json")
+    .then(res => res.json())
+    .then(data => {
+      new Chart(document.getElementById("contactsChart"), {
+        type: 'bar',
+        data: {
+          labels: data.labels,
+          datasets: [{
+            label: "Contacts",
+            data: data.values,
+            backgroundColor: 'rgba(54, 162, 235, 0.6)',
+            borderColor: 'rgba(54, 162, 235, 1)',
+            borderWidth: 1
+          }]
+        },
+        options: {
+          scales: {
+            y: {
+              beginAtZero: true,
+              ticks: { stepSize: 1 }
+            }
+          }
+        }
+      });
+    });
+</script>
+
+{% endblock %}

@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block title %}Add Contact{% endblock %}
+{% block content %}
+
+<h2 class="mb-4">Add New Contact</h2>
+
+<form method="post" class="border p-4 bg-white shadow-sm rounded">
+  <div class="mb-3">
+    <label class="form-label">First Name</label>
+    <input type="text" class="form-control" name="first_name" required>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Last Name</label>
+    <input type="text" class="form-control" name="last_name" required>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Email</label>
+    <input type="email" class="form-control" name="email" required>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Phone</label>
+    <input type="text" class="form-control" name="phone">
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Account</label>
+    <select class="form-select" name="account_id" required>
+      <option disabled selected>Select Account</option>
+      {% for acc in accounts %}
+        <option value="{{ acc[0] }}">{{ acc[1] }}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Created By (User)</label>
+    <select class="form-select" name="created_by" required>
+      <option disabled selected>Select User</option>
+      {% for u in users %}
+        <option value="{{ u[0] }}">{{ u[1] }}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <button type="submit" class="btn btn-success">Add Contact</button>
+  <a href="{{ url_for('contacts') }}" class="btn btn-secondary">Cancel</a>
+</form>
+
+{% endblock %}

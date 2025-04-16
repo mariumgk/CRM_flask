@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}Tickets{% endblock %}
+{% block content %}
+<h2>Support Tickets</h2>
+<table class="table table-striped">
+  <thead>
+    <tr><th>ID</th><th>Subject</th><th>Description</th><th>Status</th></tr>
+  </thead>
+  <tbody>
+    {% for ticket in tickets %}
+    <tr>
+      <td>{{ ticket[0] }}</td>
+      <td>{{ ticket[1] }}</td>
+      <td>{{ ticket[2] }}</td>
+      <td>{{ ticket[3] }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

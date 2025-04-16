@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}Opportunities{% endblock %}
+{% block content %}
+<h2>Opportunities</h2>
+<table class="table table-striped">
+  <thead>
+    <tr><th>ID</th><th>Name</th><th>Stage</th><th>Revenue</th><th>Close Date</th></tr>
+  </thead>
+  <tbody>
+    {% for o in opportunities %}
+    <tr>
+      <td>{{ o[0] }}</td>
+      <td>{{ o[1] }}</td>
+      <td>{{ o[2] }}</td>
+      <td>${{ o[3] }}</td>
+      <td>{{ o[4] }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

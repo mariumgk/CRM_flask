@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %}Add User{% endblock %}
+{% block content %}
+
+<h2 class="mb-4">Add New User</h2>
+
+<form method="post" class="border p-4 shadow-sm bg-white rounded">
+  <div class="mb-3">
+    <label class="form-label">Full Name</label>
+    <input type="text" class="form-control" name="name" required>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Email</label>
+    <input type="email" class="form-control" name="email" required>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Role</label>
+    <select class="form-select" name="role" required>
+      <option>Sales Rep</option>
+      <option>Manager</option>
+      <option>Support</option>
+    </select>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Password</label>
+    <input type="text" class="form-control" name="password" required>
+  </div>
+  <button type="submit" class="btn btn-primary">Add User</button>
+  <a href="{{ url_for('users') }}" class="btn btn-secondary">Cancel</a>
+</form>
+
+{% endblock %}
