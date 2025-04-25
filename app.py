@@ -1,7 +1,18 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, redirect, flash, url_for, session
+from functools import wraps
+def login_required(view_func):
+    @wraps(view_func)
+    def wrapper(*args, **kwargs):
+        if 'user_id' not in session:
+            flash("Please log in to access this page.", "warning")
+            return redirect(url_for('login'))
+        return view_func(*args, **kwargs)
+    return wrapper
+import hashlib
 import psycopg2
 
 app = Flask(__name__)
+app.secret_key = 'crm_project'
 
 def get_db_connection():
     return psycopg2.connect(
@@ -76,7 +87,36 @@ def users():
     cur.close()
     conn.close()
     return render_template('users.html', users=users)
-from flask import request, redirect, flash, url_for
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        email = request.form['email']
+        password = request.form['password']
+        password_hash = hashlib.sha256(password.encode()).hexdigest()
+
+        conn = get_db_connection()
+        cur = conn.cursor()
+        cur.execute("SELECT user_id, name FROM Users WHERE email = %s AND password_hash = %s", (email, password_hash))
+        user = cur.fetchone()
+        cur.close()
+        conn.close()
+
+        if user:
+            session['user_id'] = user[0]
+            session['user_name'] = user[1]
+            flash("Login successful!", "success")
+            return redirect(url_for('index'))
+        else:
+            flash("Invalid email or password!", "danger")
+
+    return render_template('login.html')
+
+@app.route('/logout')
+def logout():
+    session.clear()
+    flash("Logged out successfully.", "info")
+    return redirect(url_for('login'))
 
 @app.route('/add_user', methods=['GET', 'POST'])
 def add_user():
@@ -84,20 +124,66 @@ def add_user():
         name = request.form['name']
         email = request.form['email']
         role = request.form['role']
-        password_hash = request.form['password']  # You can hash it if needed
+        password = request.form['password']
+        password_hash = hashlib.sha256(password.encode()).hexdigest()
 
-        conn = get_db_connection()
-        cur = conn.cursor()
-        cur.execute("INSERT INTO Users (name, email, role, password_hash) VALUES (%s, %s, %s, %s)",
-                    (name, email, role, password_hash))
+        try:
+            conn = get_db_connection()
+            cur = conn.cursor()
+            cur.execute(
+                "INSERT INTO Users (name, email, role, password_hash) VALUES (%s, %s, %s, %s)",
+                (name, email, role, password_hash)
+            )
+            conn.commit()
+            cur.close()
+            conn.close()
+            flash("User added successfully!", "success")
+            return redirect(url_for('users'))
+
+        except psycopg2.errors.UniqueViolation:
+            conn.rollback()
+            flash("A user with this email already exists!", "danger")
+            return redirect(url_for('add_user'))
+
+    return render_template('add_user.html')
+
+@app.route('/users/edit/<int:id>', methods=['GET', 'POST'])
+def edit_user(id):
+    conn = get_db_connection()
+    cur = conn.cursor()
+
+    if request.method == 'POST':
+        name = request.form['name']
+        email = request.form['email']
+        role = request.form['role']
+
+        cur.execute("""
+            UPDATE Users
+            SET name = %s, email = %s, role = %s
+            WHERE user_id = %s
+        """, (name, email, role, id))
         conn.commit()
         cur.close()
         conn.close()
-
-        flash("User added successfully!", "success")
         return redirect(url_for('users'))
 
-    return render_template('add_user.html')
+    cur.execute("SELECT * FROM Users WHERE user_id = %s", (id,))
+    user = cur.fetchone()
+    cur.close()
+    conn.close()
+    return render_template('edit_user.html', user=user)
+
+
+@app.route('/users/delete/<int:id>', methods=['POST'])
+def delete_user(id):
+    conn = get_db_connection()
+    cur = conn.cursor()
+    cur.execute("DELETE FROM Users WHERE user_id = %s", (id,))
+    conn.commit()
+    cur.close()
+    conn.close()
+    return redirect(url_for('users'))
+
 
 @app.route('/accounts')
 def accounts():
