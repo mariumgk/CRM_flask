@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block title %}Edit Ticket{% endblock %}
+{% block content %}
+
+<h2 class="mb-4">Edit Support Ticket</h2>
+
+<form method="POST" class="border p-4 bg-white rounded shadow-sm">
+  <div class="mb-3">
+    <label class="form-label">Contact</label>
+    <select name="contact_id" class="form-select">
+      {% for c in contacts %}
+      <option value="{{ c[0] }}" {% if c[0] == ticket[1] %}selected{% endif %}>{{ c[1] }} {{ c[2] }}</option>
+      {% endfor %}
+    </select>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Subject</label>
+    <input name="subject" class="form-control" value="{{ ticket[2] }}" required>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Description</label>
+    <textarea name="description" class="form-control" required>{{ ticket[3] }}</textarea>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Status</label>
+    <select name="status" class="form-select">
+      {% for s in ['Open', 'In Progress', 'Resolved', 'Closed'] %}
+      <option value="{{ s }}" {% if s == ticket[4] %}selected{% endif %}>{{ s }}</option>
+      {% endfor %}
+    </select>
+  </div>
+
+  <button class="btn btn-primary">Update Ticket</button>
+  <a href="{{ url_for('tickets') }}" class="btn btn-secondary">Cancel</a>
+</form>
+
+{% endblock %}

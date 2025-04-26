@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block title %}Add Ticket{% endblock %}
+{% block content %}
+
+<h2 class="mb-4">Add Support Ticket</h2>
+
+<form method="POST" class="border p-4 bg-white rounded shadow-sm">
+  <div class="mb-3">
+    <label class="form-label">Contact</label>
+    <select name="contact_id" class="form-select" required>
+      {% for c in contacts %}
+      <option value="{{ c[0] }}">{{ c[1] }} {{ c[2] }}</option>
+      {% endfor %}
+    </select>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Subject</label>
+    <input name="subject" class="form-control" required>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Description</label>
+    <textarea name="description" class="form-control" required></textarea>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Status</label>
+    <select name="status" class="form-select">
+      <option>Open</option>
+      <option>In Progress</option>
+      <option>Resolved</option>
+      <option>Closed</option>
+    </select>
+  </div>
+
+  <button class="btn btn-primary">Create Ticket</button>
+  <a href="{{ url_for('tickets') }}" class="btn btn-secondary">Cancel</a>
+</form>
+
+{% endblock %}

@@ -840,16 +840,94 @@ def delete_task(id):
     return redirect(url_for('tasks'))
 
 
+# --- View Tickets ---
 @app.route('/tickets')
 @login_required
 def tickets():
     conn = get_db_connection()
     cur = conn.cursor()
-    cur.execute("SELECT ticket_id, subject, description, status FROM Tickets")
+    cur.execute("""
+        SELECT t.ticket_id, c.first_name || ' ' || c.last_name AS contact_name, 
+               t.subject, t.status
+        FROM Tickets t
+        JOIN Contacts c ON t.contact_id = c.contact_id
+        ORDER BY t.ticket_id
+    """)
     tickets = cur.fetchall()
     cur.close()
     conn.close()
     return render_template('tickets.html', tickets=tickets)
 
-if __name__ == '__main__':
-    app.run(debug=True)
+# --- Add Ticket ---
+@app.route('/tickets/add', methods=['GET', 'POST'])
+@login_required
+def add_ticket():
+    conn = get_db_connection()
+    cur = conn.cursor()
+    if request.method == 'POST':
+        contact_id = request.form['contact_id']
+        subject = request.form['subject']
+        description = request.form['description']
+        status = request.form['status']
+
+        cur.execute("""
+            INSERT INTO Tickets (contact_id, subject, description, status)
+            VALUES (%s, %s, %s, %s)
+        """, (contact_id, subject, description, status))
+
+        conn.commit()
+        cur.close()
+        conn.close()
+        flash("Ticket added successfully!", "success")
+        return redirect(url_for('tickets'))
+
+    cur.execute("SELECT contact_id, first_name, last_name FROM Contacts")
+    contacts = cur.fetchall()
+    cur.close()
+    conn.close()
+    return render_template('add_ticket.html', contacts=contacts)
+
+# --- Edit Ticket ---
+@app.route('/tickets/edit/<int:id>', methods=['GET', 'POST'])
+@login_required
+def edit_ticket(id):
+    conn = get_db_connection()
+    cur = conn.cursor()
+    if request.method == 'POST':
+        contact_id = request.form['contact_id']
+        subject = request.form['subject']
+        description = request.form['description']
+        status = request.form['status']
+
+        cur.execute("""
+            UPDATE Tickets
+            SET contact_id = %s, subject = %s, description = %s, status = %s
+            WHERE ticket_id = %s
+        """, (contact_id, subject, description, status, id))
+
+        conn.commit()
+        cur.close()
+        conn.close()
+        flash("Ticket updated!", "info")
+        return redirect(url_for('tickets'))
+
+    cur.execute("SELECT * FROM Tickets WHERE ticket_id = %s", (id,))
+    ticket = cur.fetchone()
+    cur.execute("SELECT contact_id, first_name, last_name FROM Contacts")
+    contacts = cur.fetchall()
+    cur.close()
+    conn.close()
+    return render_template('edit_ticket.html', ticket=ticket, contacts=contacts)
+
+# --- Delete Ticket ---
+@app.route('/tickets/delete/<int:id>', methods=['POST'])
+@login_required
+def delete_ticket(id):
+    conn = get_db_connection()
+    cur = conn.cursor()
+    cur.execute("DELETE FROM Tickets WHERE ticket_id = %s", (id,))
+    conn.commit()
+    cur.close()
+    conn.close()
+    flash("Ticket deleted successfully.", "danger")
+    return redirect(url_for('tickets'))
