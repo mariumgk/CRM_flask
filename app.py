@@ -747,16 +747,98 @@ def delete_quote(id):
     flash("Quote deleted successfully.", "danger")
     return redirect(url_for('quotes'))
 
+# --- View Tasks ---
 @app.route('/tasks')
 @login_required
 def tasks():
     conn = get_db_connection()
     cur = conn.cursor()
-    cur.execute("SELECT task_id, title, due_date, status FROM Tasks")
+    cur.execute("""
+        SELECT t.task_id, t.title, t.due_date, t.status, u.name
+        FROM Tasks t
+        LEFT JOIN Users u ON t.assigned_to = u.user_id
+        ORDER BY t.due_date
+    """)
     tasks = cur.fetchall()
     cur.close()
     conn.close()
     return render_template('tasks.html', tasks=tasks)
+
+# --- Add Task ---
+@app.route('/tasks/add', methods=['GET', 'POST'])
+@login_required
+def add_task():
+    conn = get_db_connection()
+    cur = conn.cursor()
+    if request.method == 'POST':
+        title = request.form['title']
+        due_date = request.form['due_date']
+        status = request.form['status']
+        assigned_to = request.form['assigned_to'] or None  # Can be null
+
+        cur.execute("""
+            INSERT INTO Tasks (title, due_date, status, assigned_to)
+            VALUES (%s, %s, %s, %s)
+        """, (title, due_date, status, assigned_to))
+
+        conn.commit()
+        cur.close()
+        conn.close()
+        flash("Task added successfully!", "success")
+        return redirect(url_for('tasks'))
+
+    cur.execute("SELECT user_id, name FROM Users")
+    users = cur.fetchall()
+    cur.close()
+    conn.close()
+    return render_template('add_task.html', users=users)
+
+# --- Edit Task ---
+@app.route('/tasks/edit/<int:id>', methods=['GET', 'POST'])
+@login_required
+def edit_task(id):
+    conn = get_db_connection()
+    cur = conn.cursor()
+
+    if request.method == 'POST':
+        title = request.form['title']
+        due_date = request.form['due_date']
+        status = request.form['status']
+        assigned_to = request.form['assigned_to'] or None
+
+        cur.execute("""
+            UPDATE Tasks
+            SET title = %s, due_date = %s, status = %s, assigned_to = %s
+            WHERE task_id = %s
+        """, (title, due_date, status, assigned_to, id))
+
+        conn.commit()
+        cur.close()
+        conn.close()
+        flash("Task updated successfully!", "info")
+        return redirect(url_for('tasks'))
+
+    cur.execute("SELECT * FROM Tasks WHERE task_id = %s", (id,))
+    task = cur.fetchone()
+    cur.execute("SELECT user_id, name FROM Users")
+    users = cur.fetchall()
+    cur.close()
+    conn.close()
+    return render_template('edit_task.html', task=task, users=users)
+
+# --- Delete Task ---
+@app.route('/tasks/delete/<int:id>', methods=['POST'])
+@login_required
+def delete_task(id):
+    conn = get_db_connection()
+    cur = conn.cursor()
+    cur.execute("DELETE FROM Tasks WHERE task_id = %s", (id,))
+    conn.commit()
+    cur.close()
+    conn.close()
+    flash("Task deleted successfully.", "danger")
+    return redirect(url_for('tasks'))
+
 
 @app.route('/tickets')
 @login_required

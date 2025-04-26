@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block title %}Edit Task{% endblock %}
+{% block content %}
+
+<h2 class="mb-4">Edit Task</h2>
+
+<form method="POST" class="border p-4 bg-white rounded shadow-sm">
+  <div class="mb-3">
+    <label class="form-label">Title</label>
+    <input name="title" class="form-control" value="{{ task[1] }}" required>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Due Date</label>
+    <input name="due_date" type="date" class="form-control" value="{{ task[2] }}" required>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Status</label>
+    <select name="status" class="form-select">
+      {% for s in ['Pending', 'In Progress', 'Completed'] %}
+      <option value="{{ s }}" {% if s == task[3] %}selected{% endif %}>{{ s }}</option>
+      {% endfor %}
+    </select>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Assign to User (optional)</label>
+    <select name="assigned_to" class="form-select">
+      <option value="">-- None --</option>
+      {% for user in users %}
+      <option value="{{ user[0] }}" {% if user[0] == task[4] %}selected{% endif %}>{{ user[1] }}</option>
+      {% endfor %}
+    </select>
+  </div>
+
+  <button class="btn btn-primary">Update Task</button>
+  <a href="{{ url_for('tasks') }}" class="btn btn-secondary">Cancel</a>
+</form>
+
+{% endblock %}
