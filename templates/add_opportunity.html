@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% block title %}Add Opportunity{% endblock %}
+{% block content %}
+
+<h2 class="mb-4">Add Opportunity</h2>
+
+<form method="POST" class="border p-4 bg-white rounded shadow-sm">
+  <div class="mb-3">
+    <label class="form-label">Name</label>
+    <input name="name" class="form-control" required>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Stage</label>
+    <select name="stage" class="form-select" required>
+      <option>Prospecting</option>
+      <option>Proposal Sent</option>
+      <option>Negotiation</option>
+      <option>Closed Won</option>
+      <option>Closed Lost</option>
+    </select>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Expected Revenue</label>
+    <input name="expected_revenue" type="number" step="0.01" class="form-control" required>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Close Date</label>
+    <input name="close_date" type="date" class="form-control" required>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Account</label>
+    <select name="account_id" class="form-select">
+      {% for acc in accounts %}
+      <option value="{{ acc[0] }}">{{ acc[1] }}</option>
+      {% endfor %}
+    </select>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Owner (User)</label>
+    <select name="owner_id" class="form-select">
+      {% for user in users %}
+      <option value="{{ user[0] }}">{{ user[1] }}</option>
+      {% endfor %}
+    </select>
+  </div>
+
+  <button class="btn btn-primary">Add</button>
+  <a href="{{ url_for('opportunities') }}" class="btn btn-secondary">Cancel</a>
+</form>
+
+{% endblock %}

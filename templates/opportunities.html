@@ -1,10 +1,21 @@
 {% extends 'base.html' %}
 {% block title %}Opportunities{% endblock %}
 {% block content %}
-<h2>Opportunities</h2>
+
+<h2 class="mb-4">Opportunities</h2>
+
+<a href="{{ url_for('add_opportunity') }}" class="btn btn-primary mb-3">➕ Add Opportunity</a>
+
 <table class="table table-striped">
   <thead>
-    <tr><th>ID</th><th>Name</th><th>Stage</th><th>Revenue</th><th>Close Date</th></tr>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Stage</th>
+      <th>Revenue</th>
+      <th>Close Date</th>
+      <th>Actions</th>  <!-- Column for Edit/Delete -->
+    </tr>
   </thead>
   <tbody>
     {% for o in opportunities %}
@@ -14,8 +25,15 @@
       <td>{{ o[2] }}</td>
       <td>${{ o[3] }}</td>
       <td>{{ o[4] }}</td>
+      <td>
+        <a href="{{ url_for('edit_opportunity', id=o[0]) }}" class="btn btn-sm btn-outline-primary">Edit</a>
+        <form method="POST" action="{{ url_for('delete_opportunity', id=o[0]) }}" style="display:inline;" onsubmit="return confirm('Are you sure?');">
+          <button type="submit" class="btn btn-sm btn-outline-danger">Delete</button>
+        </form>
+      </td>
     </tr>
     {% endfor %}
   </tbody>
 </table>
+
 {% endblock %}

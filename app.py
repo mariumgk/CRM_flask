@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, redirect, flash, url_for, session
+from decimal import Decimal
 from functools import wraps
 def login_required(view_func):
     @wraps(view_func)
@@ -79,6 +80,7 @@ def contacts_summary_json():
 
 
 @app.route('/users')
+@login_required
 def users():
     conn = get_db_connection()
     cur = conn.cursor()
@@ -186,6 +188,7 @@ def delete_user(id):
 
 
 @app.route('/accounts')
+@login_required
 def accounts():
     conn = get_db_connection()
     cur = conn.cursor()
@@ -253,6 +256,7 @@ def delete_account(id):
     return redirect(url_for('accounts'))
 
 @app.route('/contacts')
+@login_required
 def contacts():
     conn = get_db_connection()
     cur = conn.cursor()
@@ -332,9 +336,113 @@ def delete_contact(id):
     cur.close()
     conn.close()
     return redirect(url_for('contacts'))
+@app.route('/leads')
+@login_required
+def leads():
+    conn = get_db_connection()
+    cur = conn.cursor()
+    cur.execute("""
+        SELECT l.lead_id, l.name, l.email, l.company, l.status, u.name
+        FROM Leads l
+        LEFT JOIN Users u ON l.assigned_to = u.user_id
+    """)
+    leads = cur.fetchall()
+    cur.close()
+    conn.close()
+    return render_template('leads.html', leads=leads)
+
+@app.route('/leads/add', methods=['GET', 'POST'])
+@login_required
+def add_lead():
+    conn = get_db_connection()
+    cur = conn.cursor()
+    if request.method == 'POST':
+        name = request.form['name']
+        email = request.form['email']
+        company = request.form['company']
+        status = request.form['status']
+        assigned_to = request.form['assigned_to']
+        cur.execute("INSERT INTO Leads (name, email, company, status, assigned_to) VALUES (%s, %s, %s, %s, %s)",
+                    (name, email, company, status, assigned_to))
+        conn.commit()
+        cur.close()
+        conn.close()
+        return redirect(url_for('leads'))
+
+    cur.execute("SELECT user_id, name FROM Users")
+    users = cur.fetchall()
+    cur.close()
+    conn.close()
+    return render_template('add_lead.html', users=users)
+
+@app.route('/leads/edit/<int:id>', methods=['GET', 'POST'])
+@login_required
+def edit_lead(id):
+    conn = get_db_connection()
+    cur = conn.cursor()
+    if request.method == 'POST':
+        name = request.form['name']
+        email = request.form['email']
+        company = request.form['company']
+        status = request.form['status']
+        assigned_to = request.form['assigned_to']
+        cur.execute("""UPDATE Leads
+                       SET name = %s, email = %s, company = %s, status = %s, assigned_to = %s
+                       WHERE lead_id = %s""",
+                    (name, email, company, status, assigned_to, id))
+        conn.commit()
+        cur.close()
+        conn.close()
+        return redirect(url_for('leads'))
+
+    cur.execute("SELECT * FROM Leads WHERE lead_id = %s", (id,))
+    lead = cur.fetchone()
+    cur.execute("SELECT user_id, name FROM Users")
+    users = cur.fetchall()
+    cur.close()
+    conn.close()
+    return render_template('edit_lead.html', lead=lead, users=users)
+
+@app.route('/leads/delete/<int:id>', methods=['POST'])
+@login_required
+def delete_lead(id):
+    conn = get_db_connection()
+    cur = conn.cursor()
+    cur.execute("DELETE FROM Leads WHERE lead_id = %s", (id,))
+    conn.commit()
+    cur.close()
+    conn.close()
+    return redirect(url_for('leads'))
+
+@app.route('/leads/convert/<int:id>', methods=['POST'])
+@login_required
+def convert_lead(id):
+    conn = get_db_connection()
+    cur = conn.cursor()
+
+    # Get lead info
+    cur.execute("SELECT name, email, company, assigned_to FROM Leads WHERE lead_id = %s", (id,))
+    lead = cur.fetchone()
+    if not lead:
+        flash("Lead not found!", "danger")
+        return redirect(url_for('leads'))
+
+    # Insert as new Account
+    name, email, company, owner_id = lead
+    cur.execute("INSERT INTO Accounts (name, industry, address, website, owner_id) VALUES (%s, %s, %s, %s, %s)",
+                (company, 'Unknown', '', '', owner_id))
+
+    # Delete lead
+    cur.execute("DELETE FROM Leads WHERE lead_id = %s", (id,))
+    conn.commit()
+    cur.close()
+    conn.close()
+    flash("Lead converted to Account!", "success")
+    return redirect(url_for('accounts'))
 
 
 @app.route('/products')
+@login_required
 def products():
     conn = get_db_connection()
     cur = conn.cursor()
@@ -343,8 +451,69 @@ def products():
     cur.close()
     conn.close()
     return render_template('products.html', products=products)
+@app.route('/products/add', methods=['GET', 'POST'])
+@login_required
+def add_product():
+    if request.method == 'POST':
+        name = request.form['name']
+        description = request.form['description']
+        price = request.form['price']
+
+        conn = get_db_connection()
+        cur = conn.cursor()
+        cur.execute("INSERT INTO Products (name, description, price) VALUES (%s, %s, %s)",
+                    (name, description, price))
+        conn.commit()
+        cur.close()
+        conn.close()
+        flash("Product added!", "success")
+        return redirect(url_for('products'))
+
+    return render_template('add_product.html')
+
+@app.route('/products/edit/<int:id>', methods=['GET', 'POST'])
+@login_required
+def edit_product(id):
+    conn = get_db_connection()
+    cur = conn.cursor()
+
+    if request.method == 'POST':
+        name = request.form['name']
+        description = request.form['description']
+        price = request.form['price']
+
+        cur.execute("""
+            UPDATE Products
+            SET name = %s, description = %s, price = %s
+            WHERE product_id = %s
+        """, (name, description, price, id))
+
+        conn.commit()
+        cur.close()
+        conn.close()
+        flash("Product updated!", "info")
+        return redirect(url_for('products'))
+
+    cur.execute("SELECT * FROM Products WHERE product_id = %s", (id,))
+    product = cur.fetchone()
+    cur.close()
+    conn.close()
+    return render_template('edit_product.html', product=product)
+
+@app.route('/products/delete/<int:id>', methods=['POST'])
+@login_required
+def delete_product(id):
+    conn = get_db_connection()
+    cur = conn.cursor()
+    cur.execute("DELETE FROM Products WHERE product_id = %s", (id,))
+    conn.commit()
+    cur.close()
+    conn.close()
+    flash("Product deleted!", "danger")
+    return redirect(url_for('products'))
 
 @app.route('/opportunities')
+@login_required
 def opportunities():
     conn = get_db_connection()
     cur = conn.cursor()
@@ -354,17 +523,232 @@ def opportunities():
     conn.close()
     return render_template('opportunities.html', opportunities=opportunities)
 
+# --- Create Opportunity ---
+@app.route('/opportunities/add', methods=['GET', 'POST'])
+@login_required
+def add_opportunity():
+    conn = get_db_connection()
+    cur = conn.cursor()
+
+    if request.method == 'POST':
+        name = request.form['name']
+        stage = request.form['stage']
+        revenue = request.form['expected_revenue']
+        close_date = request.form['close_date']
+        account_id = request.form['account_id']
+        owner_id = request.form['owner_id']
+
+        cur.execute("""
+            INSERT INTO Opportunities (name, stage, expected_revenue, close_date, account_id, owner_id)
+            VALUES (%s, %s, %s, %s, %s, %s)
+        """, (name, stage, revenue, close_date, account_id, owner_id))
+        conn.commit()
+        cur.close()
+        conn.close()
+        flash("Opportunity added!", "success")
+        return redirect(url_for('opportunities'))
+
+    cur.execute("SELECT account_id, name FROM Accounts")
+    accounts = cur.fetchall()
+    cur.execute("SELECT user_id, name FROM Users")
+    users = cur.fetchall()
+    cur.close()
+    conn.close()
+    return render_template('add_opportunity.html', accounts=accounts, users=users)
+
+# --- Edit Opportunity ---
+@app.route('/opportunities/edit/<int:id>', methods=['GET', 'POST'])
+@login_required
+def edit_opportunity(id):
+    conn = get_db_connection()
+    cur = conn.cursor()
+
+    if request.method == 'POST':
+        name = request.form['name']
+        stage = request.form['stage']
+        revenue = request.form['expected_revenue']
+        close_date = request.form['close_date']
+        account_id = request.form['account_id']
+        owner_id = request.form['owner_id']
+
+        cur.execute("""
+            UPDATE Opportunities
+            SET name = %s, stage = %s, expected_revenue = %s, close_date = %s, account_id = %s, owner_id = %s
+            WHERE opportunity_id = %s
+        """, (name, stage, revenue, close_date, account_id, owner_id, id))
+
+        conn.commit()
+        cur.close()
+        conn.close()
+        flash("Opportunity updated!", "info")
+        return redirect(url_for('opportunities'))
+
+    cur.execute("SELECT * FROM Opportunities WHERE opportunity_id = %s", (id,))
+    opportunity = cur.fetchone()
+    cur.execute("SELECT account_id, name FROM Accounts")
+    accounts = cur.fetchall()
+    cur.execute("SELECT user_id, name FROM Users")
+    users = cur.fetchall()
+    cur.close()
+    conn.close()
+    return render_template('edit_opportunity.html', opportunity=opportunity, accounts=accounts, users=users)
+
+# --- Delete Opportunity ---
+@app.route('/opportunities/delete/<int:id>', methods=['POST'])
+@login_required
+def delete_opportunity(id):
+    conn = get_db_connection()
+    cur = conn.cursor()
+    cur.execute("DELETE FROM Opportunities WHERE opportunity_id = %s", (id,))
+    conn.commit()
+    cur.close()
+    conn.close()
+    flash("Opportunity deleted!", "danger")
+    return redirect(url_for('opportunities'))
+
+
 @app.route('/quotes')
+@login_required
 def quotes():
     conn = get_db_connection()
     cur = conn.cursor()
-    cur.execute("SELECT quote_id, opportunity_id, total, status FROM Quotes")
+    cur.execute("""
+        SELECT q.quote_id, q.opportunity_id, q.total, q.status
+        FROM Quotes q
+        ORDER BY q.quote_id
+    """)
     quotes = cur.fetchall()
     cur.close()
     conn.close()
     return render_template('quotes.html', quotes=quotes)
 
+
+@app.route('/quotes/add', methods=['GET', 'POST'])
+@login_required
+def add_quote():
+    conn = get_db_connection()
+    cur = conn.cursor()
+
+    if request.method == 'POST':
+        opportunity_id = request.form['opportunity_id']
+        status = request.form['status']
+        product_ids = request.form.getlist('product_id')
+        quantities = request.form.getlist('quantity')
+
+        total = Decimal('0.0')
+        for pid, qty in zip(product_ids, quantities):
+            cur.execute("SELECT price FROM Products WHERE product_id = %s", (pid,))
+            price = cur.fetchone()[0]
+            total += price * int(qty)
+
+        cur.execute("INSERT INTO Quotes (opportunity_id, total, status) VALUES (%s, %s, %s) RETURNING quote_id",
+                    (opportunity_id, total, status))
+        quote_id = cur.fetchone()[0]
+
+        for pid, qty in zip(product_ids, quantities):
+            cur.execute("INSERT INTO Quote_Items (quote_id, product_id, quantity) VALUES (%s, %s, %s)",
+                        (quote_id, pid, qty))
+
+        conn.commit()
+        cur.close()
+        conn.close()
+        flash("Quote created successfully!", "success")
+        return redirect(url_for('quotes'))
+
+    cur.execute("SELECT opportunity_id, name FROM Opportunities")
+    opportunities = cur.fetchall()
+    cur.execute("SELECT product_id, name, price FROM Products")
+    products = cur.fetchall()
+    cur.close()
+    conn.close()
+    return render_template('add_quote.html', opportunities=opportunities, products=products)
+
+# --- VIEW QUOTE ---
+@app.route('/quotes/view/<int:id>')
+@login_required
+def view_quote(id):
+    conn = get_db_connection()
+    cur = conn.cursor()
+
+    cur.execute("""
+        SELECT q.quote_id, o.name, q.total, q.status
+        FROM Quotes q
+        JOIN Opportunities o ON q.opportunity_id = o.opportunity_id
+        WHERE q.quote_id = %s
+    """, (id,))
+    quote = cur.fetchone()
+
+    cur.execute("""
+        SELECT p.name, p.price, qi.quantity, (p.price * qi.quantity) as subtotal
+        FROM Quote_Items qi
+        JOIN Products p ON qi.product_id = p.product_id
+        WHERE qi.quote_id = %s
+    """, (id,))
+    items = cur.fetchall()
+
+    cur.close()
+    conn.close()
+    return render_template('view_quote.html', quote=quote, items=items)
+
+# --- EDIT QUOTE ---
+@app.route('/quotes/edit/<int:id>', methods=['GET', 'POST'])
+@login_required
+def edit_quote(id):
+    conn = get_db_connection()
+    cur = conn.cursor()
+
+    if request.method == 'POST':
+        status = request.form['status']
+        product_ids = request.form.getlist('product_id')
+        quantities = request.form.getlist('quantity')
+
+        total = Decimal('0.0')
+        for pid, qty in zip(product_ids, quantities):
+            cur.execute("SELECT price FROM Products WHERE product_id = %s", (pid,))
+            price = cur.fetchone()[0]
+            total += price * int(qty)
+
+        cur.execute("UPDATE Quotes SET total = %s, status = %s WHERE quote_id = %s",
+                    (total, status, id))
+
+        cur.execute("DELETE FROM Quote_Items WHERE quote_id = %s", (id,))
+        for pid, qty in zip(product_ids, quantities):
+            cur.execute("INSERT INTO Quote_Items (quote_id, product_id, quantity) VALUES (%s, %s, %s)",
+                        (id, pid, qty))
+
+        conn.commit()
+        cur.close()
+        conn.close()
+        flash("Quote updated!", "info")
+        return redirect(url_for('quotes'))
+
+    cur.execute("SELECT status FROM Quotes WHERE quote_id = %s", (id,))
+    quote_status = cur.fetchone()[0]
+    cur.execute("SELECT product_id, quantity FROM Quote_Items WHERE quote_id = %s", (id,))
+    selected_items = cur.fetchall()
+
+    cur.execute("SELECT product_id, name, price FROM Products")
+    products = cur.fetchall()
+    cur.close()
+    conn.close()
+    return render_template('edit_quote.html', quote_id=id, status=quote_status, selected_items=selected_items, products=products)
+
+# --- DELETE QUOTE ---
+@app.route('/quotes/delete/<int:id>', methods=['POST'])
+@login_required
+def delete_quote(id):
+    conn = get_db_connection()
+    cur = conn.cursor()
+    cur.execute("DELETE FROM Quote_Items WHERE quote_id = %s", (id,))
+    cur.execute("DELETE FROM Quotes WHERE quote_id = %s", (id,))
+    conn.commit()
+    cur.close()
+    conn.close()
+    flash("Quote deleted successfully.", "danger")
+    return redirect(url_for('quotes'))
+
 @app.route('/tasks')
+@login_required
 def tasks():
     conn = get_db_connection()
     cur = conn.cursor()
@@ -375,6 +759,7 @@ def tasks():
     return render_template('tasks.html', tasks=tasks)
 
 @app.route('/tickets')
+@login_required
 def tickets():
     conn = get_db_connection()
     cur = conn.cursor()

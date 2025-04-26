@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block title %}Edit Opportunity{% endblock %}
+{% block content %}
+
+<h2 class="mb-4">Edit Opportunity</h2>
+
+<form method="POST" class="border p-4 bg-white rounded shadow-sm">
+  <div class="mb-3">
+    <label class="form-label">Name</label>
+    <input name="name" class="form-control" value="{{ opportunity[1] }}" required>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Stage</label>
+    <select name="stage" class="form-select">
+      {% for stage in ['Prospecting', 'Proposal Sent', 'Negotiation', 'Closed Won', 'Closed Lost'] %}
+        <option value="{{ stage }}" {% if opportunity[2] == stage %}selected{% endif %}>{{ stage }}</option>
+      {% endfor %}
+    </select>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Expected Revenue</label>
+    <input name="expected_revenue" type="number" step="0.01" class="form-control" value="{{ opportunity[3] }}" required>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Close Date</label>
+    <input name="close_date" type="date" class="form-control" value="{{ opportunity[4] }}" required>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Account</label>
+    <select name="account_id" class="form-select">
+      {% for acc in accounts %}
+      <option value="{{ acc[0] }}" {% if acc[0] == opportunity[5] %}selected{% endif %}>{{ acc[1] }}</option>
+      {% endfor %}
+    </select>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Owner</label>
+    <select name="owner_id" class="form-select">
+      {% for user in users %}
+      <option value="{{ user[0] }}" {% if user[0] == opportunity[6] %}selected{% endif %}>{{ user[1] }}</option>
+      {% endfor %}
+    </select>
+  </div>
+
+  <button class="btn btn-primary">Save</button>
+  <a href="{{ url_for('opportunities') }}" class="btn btn-secondary">Cancel</a>
+</form>
+
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}Quote Details{% endblock %}
+{% block content %}
+
+<h2>Quote #{{ quote[0] }}</h2>
+<p><strong>Opportunity:</strong> {{ quote[1] }}</p>
+<p><strong>Status:</strong> {{ quote[3] }}</p>
+<p><strong>Total:</strong> ${{ quote[2] }}</p>
+
+<h5 class="mt-4">Line Items</h5>
+<table class="table table-bordered">
+  <thead>
+    <tr><th>Product</th><th>Price</th><th>Qty</th><th>Subtotal</th></tr>
+  </thead>
+  <tbody>
+    {% for item in items %}
+    <tr>
+      <td>{{ item[0] }}</td>
+      <td>${{ item[1] }}</td>
+      <td>{{ item[2] }}</td>
+      <td>${{ item[3] }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<a href="{{ url_for('quotes') }}" class="btn btn-secondary">← Back to Quotes</a>
+{% endblock %}

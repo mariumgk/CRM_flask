@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block title %}Edit Quote{% endblock %}
+{% block content %}
+
+<h2 class="mb-4">Edit Quote #{{ quote_id }}</h2>
+
+<form method="POST" class="border p-4 bg-white rounded shadow-sm">
+  <div class="mb-3">
+    <label class="form-label">Status</label>
+    <select name="status" class="form-select">
+      {% for s in ['Draft', 'Sent', 'Accepted', 'Rejected'] %}
+        <option value="{{ s }}" {% if s == status %}selected{% endif %}>{{ s }}</option>
+      {% endfor %}
+    </select>
+  </div>
+
+  <h5>Quote Items</h5>
+  <div id="product-list">
+    {% for item in selected_items %}
+    <div class="row mb-3">
+      <div class="col">
+        <select name="product_id" class="form-select">
+          {% for p in products %}
+          <option value="{{ p[0] }}" {% if p[0] == item[0] %}selected{% endif %}>{{ p[1] }} (${{ p[2] }})</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div class="col">
+        <input type="number" name="quantity" class="form-control" value="{{ item[1] }}" min="1" required>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  <button type="button" class="btn btn-outline-secondary btn-sm mb-3" onclick="addProduct()">+ Add Product</button>
+  <br>
+  <button class="btn btn-primary">Update Quote</button>
+  <a href="{{ url_for('quotes') }}" class="btn btn-secondary">Cancel</a>
+</form>
+
+<script>
+function addProduct() {
+  const original = document.querySelector('#product-list .row');
+  const clone = original.cloneNode(true);
+  document.getElementById('product-list').appendChild(clone);
+}
+</script>
+
+{% endblock %}
