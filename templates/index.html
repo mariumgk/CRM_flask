@@ -1,21 +1,23 @@
 {% extends 'base.html' %}
-{% block title %}Dashboard{% endblock %}
+{% block title %}CRM Dashboard{% endblock %}
 {% block content %}
 
-<h2 class="mb-4">Welcome to the CRM Dashboard</h2>
+<h2 class="mb-4">CRM Dashboard</h2>
 
 <!-- KPI Cards -->
 <div class="row">
   {% set kpis = [
-    ("Users", user_count),
-    ("Accounts", account_count),
-    ("Quotes", quote_count),
-    ("Tickets", ticket_count),
-    ("Leads", lead_count),
-    ("Tasks", task_count)
+    ('Users', user_count),
+    ('Accounts', account_count),
+    ('Contacts', contact_count),
+    ('Leads', lead_count),
+    ('Opportunities', opportunity_count),
+    ('Revenue Forecast ($)', revenue_forecast),
+    ('Open Tickets', open_ticket_count),
+    ('Tasks Due This Week', tasks_due_week)
   ] %}
   {% for label, count in kpis %}
-  <div class="col-md-4 mb-4">
+  <div class="col-md-3 mb-4">
     <div class="card shadow-sm border-0">
       <div class="card-body">
         <h6 class="text-muted text-uppercase">{{ label }}</h6>
@@ -26,40 +28,111 @@
   {% endfor %}
 </div>
 
-<!-- Chart Area -->
-<div class="my-5">
-  <h5 class="mb-3">Contacts per Account</h5>
-  <canvas id="contactsChart" height="100"></canvas>
+<!-- Chart Section -->
+<h4 class="mt-5">Charts Overview</h4>
+
+<!-- Row 1: Opportunities and Leads Charts -->
+<div class="row">
+  <div class="col-md-6">
+    <h5 class="text-center">Opportunities by Stage</h5>
+    <canvas id="oppChart" height="200"></canvas>
+  </div>
+  <div class="col-md-6">
+    <h5 class="text-center">Leads by Status</h5>
+    <canvas id="leadChart" height="200"></canvas>
+  </div>
 </div>
 
-<!-- Chart.js -->
+<!-- Row 2: Tickets and Tasks Charts -->
+<div class="row mt-5">
+  <div class="col-md-6">
+    <h5 class="text-center">Tickets by Status</h5>
+    <canvas id="ticketChart" height="200"></canvas>
+  </div>
+  <div class="col-md-6">
+    <h5 class="text-center">Tasks by Status</h5>
+    <canvas id="taskChart" height="200"></canvas>
+  </div>
+</div>
+
+<!-- Chart.js Script -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
-  fetch("/contacts/summary.json")
-    .then(res => res.json())
-    .then(data => {
-      new Chart(document.getElementById("contactsChart"), {
-        type: 'bar',
-        data: {
-          labels: data.labels,
-          datasets: [{
-            label: "Contacts",
-            data: data.values,
-            backgroundColor: 'rgba(54, 162, 235, 0.6)',
-            borderColor: 'rgba(54, 162, 235, 1)',
-            borderWidth: 1
-          }]
-        },
-        options: {
-          scales: {
-            y: {
-              beginAtZero: true,
-              ticks: { stepSize: 1 }
-            }
-          }
-        }
-      });
+// Opportunities Chart
+fetch("/opportunities/summary.json")
+  .then(res => res.json())
+  .then(data => {
+    new Chart(document.getElementById("oppChart"), {
+      type: 'pie',
+      data: {
+        labels: data.labels,
+        datasets: [{
+          data: data.values,
+          backgroundColor: ['#007bff', '#28a745', '#ffc107', '#dc3545', '#17a2b8']
+        }]
+      }
     });
+  });
+
+// Leads Chart
+fetch("/leads/summary.json")
+  .then(res => res.json())
+  .then(data => {
+    new Chart(document.getElementById("leadChart"), {
+      type: 'bar',
+      data: {
+        labels: data.labels,
+        datasets: [{
+          label: "Number of Leads",
+          data: data.values,
+          backgroundColor: 'rgba(54, 162, 235, 0.7)'
+        }]
+      },
+      options: {
+        scales: {
+          y: { beginAtZero: true }
+        }
+      }
+    });
+  });
+
+// Tickets Chart
+fetch("/tickets/summary.json")
+  .then(res => res.json())
+  .then(data => {
+    new Chart(document.getElementById("ticketChart"), {
+      type: 'pie',
+      data: {
+        labels: data.labels,
+        datasets: [{
+          data: data.values,
+          backgroundColor: ['#17a2b8', '#ffc107', '#28a745', '#dc3545']
+        }]
+      }
+    });
+  });
+
+// Tasks Chart
+fetch("/tasks/summary.json")
+  .then(res => res.json())
+  .then(data => {
+    new Chart(document.getElementById("taskChart"), {
+      type: 'bar',
+      data: {
+        labels: data.labels,
+        datasets: [{
+          label: "Number of Tasks",
+          data: data.values,
+          backgroundColor: 'rgba(255, 99, 132, 0.7)'
+        }]
+      },
+      options: {
+        scales: {
+          y: { beginAtZero: true }
+        }
+      }
+    });
+  });
 </script>
 
 {% endblock %}

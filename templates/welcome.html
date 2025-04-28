@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% block title %}Welcome to CRM System{% endblock %}
+{% block content %}
+
+<div class="container mt-5">
+
+  <!-- Welcome Section with Text + Transparent CRM Image -->
+  <div class="row align-items-center mb-5">
+    <div class="col-md-6 text-center text-md-start">
+      <h1 class="fw-bold mb-3 animate__animated animate__fadeInLeft" style="color: #007bff;">
+        Welcome to Your CRM!
+      </h1>
+      <p class="lead mb-4 animate__animated animate__fadeInLeft animate__delay-1s">
+        Manage your entire business in one place — Customers, Leads, Opportunities, Products, Quotes, and Support Tickets.
+        Track sales, streamline communication, and grow faster with your all-in-one CRM system!
+      </p>
+      <a href="{{ url_for('index') }}" 
+         class="btn btn-primary btn-lg shadow-sm px-4 py-2 animate__animated animate__fadeInUp animate__delay-2s">
+        🚀 Get Started
+      </a>
+    </div>
+
+    <div class="col-md-6 text-center animate__animated animate__fadeInRight">
+      <img src="{{ url_for('static', filename='images/crm_name-removebg-preview.png') }}" 
+           alt="CRM Banner" 
+           class="img-fluid" 
+           style="max-width: 100%; height: auto;">
+    </div>
+  </div>
+
+  <hr class="my-5">
+
+  <!-- Key Features Section -->
+  <h2 class="text-center mb-4 fw-bold animate__animated animate__fadeInUp">Key Features</h2>
+
+  <div class="row text-center">
+    <div class="col-md-4 mb-4">
+      <div class="card h-100 shadow-sm border-0 animate__animated animate__zoomIn animate__delay-1s">
+        <div class="card-body">
+          <h5 class="card-title text-primary fw-bold">Accounts & Contacts</h5>
+          <p class="card-text">Store detailed information about your clients and companies in an organized manner.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+      <div class="card h-100 shadow-sm border-0 animate__animated animate__zoomIn animate__delay-2s">
+        <div class="card-body">
+          <h5 class="card-title text-success fw-bold">Sales & Opportunities</h5>
+          <p class="card-text">Track your leads and sales opportunities easily through every stage of the sales funnel.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+      <div class="card h-100 shadow-sm border-0 animate__animated animate__zoomIn animate__delay-3s">
+        <div class="card-body">
+          <h5 class="card-title text-danger fw-bold">Support & Tickets</h5>
+          <p class="card-text">Manage customer issues with an efficient ticketing system and quick resolutions.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="my-5">
+
+  <!-- Customer Satisfaction Section -->
+  <div class="text-center">
+    <h2 class="fw-bold mb-4 animate__animated animate__fadeInUp">Our Goal: Happy Customers!</h2>
+    <img src="{{ url_for('static', filename='images/vecteezy_customer-service-modern-icon-illustration_39631057.png') }}" 
+         alt="Customer Satisfaction" 
+         class="img-fluid animate__animated animate__zoomIn" 
+         style="max-height: 300px;">
+  </div>
+
+  <div class="text-center mt-5">
+    <a href="{{ url_for('index') }}" 
+       class="btn btn-outline-primary btn-lg shadow-sm px-4 py-2 animate__animated animate__fadeInUp animate__delay-4s">
+      Let's Explore the CRM →
+    </a>
+  </div>
+
+</div>
+
+{% endblock %}

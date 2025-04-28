@@ -22,62 +22,57 @@ def get_db_connection():
         password="admin",
         host="localhost"
     )
-
 @app.route('/')
+@login_required
 def index():
     conn = get_db_connection()
     cur = conn.cursor()
 
-    # Count summary stats
+    # Basic Counts
     cur.execute("SELECT COUNT(*) FROM Users")
     user_count = cur.fetchone()[0]
 
     cur.execute("SELECT COUNT(*) FROM Accounts")
     account_count = cur.fetchone()[0]
 
-    cur.execute("SELECT COUNT(*) FROM Quotes")
-    quote_count = cur.fetchone()[0]
-
-    cur.execute("SELECT COUNT(*) FROM Tickets")
-    ticket_count = cur.fetchone()[0]
+    cur.execute("SELECT COUNT(*) FROM Contacts")
+    contact_count = cur.fetchone()[0]
 
     cur.execute("SELECT COUNT(*) FROM Leads")
     lead_count = cur.fetchone()[0]
 
-    cur.execute("SELECT COUNT(*) FROM Tasks")
-    task_count = cur.fetchone()[0]
+    cur.execute("SELECT COUNT(*) FROM Opportunities")
+    opportunity_count = cur.fetchone()[0]
+
+    cur.execute("SELECT SUM(expected_revenue) FROM Opportunities")
+    revenue_forecast = cur.fetchone()[0] or 0
+
+    cur.execute("SELECT COUNT(*) FROM Tickets WHERE status = 'Open'")
+    open_ticket_count = cur.fetchone()[0]
+
+    cur.execute("""
+        SELECT COUNT(*)
+        FROM Tasks
+        WHERE due_date BETWEEN CURRENT_DATE AND CURRENT_DATE + INTERVAL '7 days'
+    """)
+    tasks_due_week = cur.fetchone()[0]
 
     cur.close()
     conn.close()
 
     return render_template('index.html', 
-        user_count=user_count, 
+        user_count=user_count,
         account_count=account_count,
-        quote_count=quote_count,
-        ticket_count=ticket_count,
+        contact_count=contact_count,
         lead_count=lead_count,
-        task_count=task_count
+        opportunity_count=opportunity_count,
+        revenue_forecast=revenue_forecast,
+        open_ticket_count=open_ticket_count,
+        tasks_due_week=tasks_due_week
     )
-@app.route('/contacts/summary.json')
-def contacts_summary_json():
-    conn = get_db_connection()
-    cur = conn.cursor()
-    cur.execute("""
-        SELECT a.name, COUNT(c.contact_id)
-        FROM Accounts a
-        LEFT JOIN Contacts c ON a.account_id = c.account_id
-        GROUP BY a.name
-        ORDER BY COUNT(c.contact_id) DESC;
-    """)
-    data = cur.fetchall()
-    cur.close()
-    conn.close()
-
-    labels = [row[0] for row in data]
-    values = [row[1] for row in data]
-
-    return {"labels": labels, "values": values}
-
+@app.route('/welcome')
+def welcome():
+    return render_template('welcome.html')
 
 @app.route('/users')
 @login_required
@@ -931,3 +926,82 @@ def delete_ticket(id):
     conn.close()
     flash("Ticket deleted successfully.", "danger")
     return redirect(url_for('tickets'))
+
+# --- Opportunities by Stage Chart Data ---
+@app.route('/opportunities/summary.json')
+@login_required
+def opportunities_summary_json():
+    conn = get_db_connection()
+    cur = conn.cursor()
+    cur.execute("""
+        SELECT stage, COUNT(*) 
+        FROM Opportunities
+        GROUP BY stage
+    """)
+    data = cur.fetchall()
+    cur.close()
+    conn.close()
+
+    labels = [row[0] for row in data]
+    values = [row[1] for row in data]
+
+    return {"labels": labels, "values": values}
+
+# --- Leads by Status Chart Data ---
+@app.route('/leads/summary.json')
+@login_required
+def leads_summary_json():
+    conn = get_db_connection()
+    cur = conn.cursor()
+    cur.execute("""
+        SELECT status, COUNT(*)
+        FROM Leads
+        GROUP BY status
+    """)
+    data = cur.fetchall()
+    cur.close()
+    conn.close()
+
+    labels = [row[0] for row in data]
+    values = [row[1] for row in data]
+
+    return {"labels": labels, "values": values}
+
+@app.route('/tickets/summary.json')
+@login_required
+def tickets_summary_json():
+    conn = get_db_connection()
+    cur = conn.cursor()
+    cur.execute("""
+        SELECT status, COUNT(*)
+        FROM Tickets
+        GROUP BY status
+    """)
+    data = cur.fetchall()
+    cur.close()
+    conn.close()
+
+    labels = [row[0] for row in data]
+    values = [row[1] for row in data]
+
+    return {"labels": labels, "values": values}
+
+@app.route('/tasks/summary.json')
+@login_required
+def tasks_summary_json():
+    conn = get_db_connection()
+    cur = conn.cursor()
+    cur.execute("""
+        SELECT status, COUNT(*)
+        FROM Tasks
+        GROUP BY status
+    """)
+    data = cur.fetchall()
+    cur.close()
+    conn.close()
+
+    labels = [row[0] for row in data]
+    values = [row[1] for row in data]
+
+    return {"labels": labels, "values": values}
+
