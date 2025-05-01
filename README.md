@@ -1,5 +1,5 @@
 
-# 🧠 CRM System – CS232 Semester Project (Spring 2025)
+#  CRM System – CS232 Semester Project (Spring 2025)
 
 This is a beginner-level Customer Relationship Management (CRM) system developed using **Flask** (Python) and **PostgreSQL** (or SQLite for local testing), as part of the DBMS course sem project. The project is inspired by Salesforce and follows best practices in database design, user interaction, and query handling.
 
