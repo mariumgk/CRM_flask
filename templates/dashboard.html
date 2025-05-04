@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+{% block title %}CRM Dashboard{% endblock %}
+{% block content %}
+
+<div class="container mt-5">
+
+  <h2 class="fw-bold mb-4 text-center">📊 CRM Sales Dashboard</h2>
+
+  <!-- KPI Summary -->
+  <div class="row text-center mb-4">
+    <div class="col-md-4 mb-3">
+      <div class="card shadow-sm border-start border-success border-4">
+        <div class="card-body">
+          <h5 class="card-title text-muted">Total Sales</h5>
+          <h3 class="text-success fw-bold">${{ total_sales }}</h3>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 mb-3">
+      <div class="card shadow-sm border-start border-info border-4">
+        <div class="card-body">
+          <h5 class="card-title text-muted">Open Leads</h5>
+          <h3 class="text-info fw-bold">{{ total_leads }}</h3>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 mb-3">
+      <div class="card shadow-sm border-start border-primary border-4">
+        <div class="card-body">
+          <h5 class="card-title text-muted">Opportunities</h5>
+          <h3 class="text-primary fw-bold">{{ total_opportunities }}</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Charts -->
+  <div class="row">
+    <div class="col-md-6 mb-4">
+      <div class="card shadow-sm p-3">
+        <h5 class="card-title text-center">Sales by Quarter</h5>
+        <canvas id="salesByQuarterChart" height="200"></canvas>
+      </div>
+    </div>
+    <div class="col-md-6 mb-4">
+      <div class="card shadow-sm p-3">
+        <h5 class="card-title text-center">Sales by Stage</h5>
+        <canvas id="salesByStageChart" height="200"></canvas>
+      </div>
+    </div>
+    <div class="col-md-6 mb-4">
+      <div class="card shadow-sm p-3">
+        <h5 class="card-title text-center">Sales by Region</h5>
+        <canvas id="salesByRegionChart" height="200"></canvas>
+      </div>
+    </div>
+    <div class="col-md-6 mb-4">
+      <div class="card shadow-sm p-3">
+        <h5 class="card-title text-center">Expected Revenue by Account</h5>
+        <canvas id="revenueByAccountChart" height="200"></canvas>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  function renderChart(url, elementId, label, type = 'bar') {
+    fetch(url)
+      .then(res => res.json())
+      .then(data => {
+        new Chart(document.getElementById(elementId), {
+          type: type,
+          data: {
+            labels: data.labels,
+            datasets: [{
+              label: label,
+              data: data.values,
+              backgroundColor: [
+                '#36a2eb', '#4bc0c0', '#ffcd56', '#ff6384', '#9966ff', '#009688'
+              ]
+            }]
+          },
+          options: {
+            responsive: true,
+            plugins: { legend: { display: false } }
+          }
+        });
+      });
+  }
+
+  renderChart('/dashboard/sales_by_quarter.json', 'salesByQuarterChart', 'Sales by Quarter');
+  renderChart('/dashboard/sales_by_stage.json', 'salesByStageChart', 'Sales by Stage');
+  renderChart('/dashboard/sales_by_region.json', 'salesByRegionChart', 'Sales by Region', 'pie');
+  renderChart('/dashboard/revenue_by_account.json', 'revenueByAccountChart', 'Revenue by Account', 'doughnut');
+</script>
+
+{% endblock %}

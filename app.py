@@ -1,6 +1,21 @@
 from flask import Flask, render_template, request, redirect, flash, url_for, session
-from decimal import Decimal
 from functools import wraps
+from decimal import Decimal
+import hashlib
+import psycopg2
+import logging
+
+app = Flask(__name__)
+app.secret_key = 'crm_project'
+
+# Set up logging
+logging.basicConfig(
+    filename='crm_debug.log',
+    level=logging.DEBUG,
+    format='%(asctime)s - %(levelname)s - %(message)s'
+)
+
+# Role-based access control
 def login_required(view_func):
     @wraps(view_func)
     def wrapper(*args, **kwargs):
@@ -9,11 +24,17 @@ def login_required(view_func):
             return redirect(url_for('login'))
         return view_func(*args, **kwargs)
     return wrapper
-import hashlib
-import psycopg2
 
-app = Flask(__name__)
-app.secret_key = 'crm_project'
+def role_required(required_role):
+    def decorator(view_func):
+        @wraps(view_func)
+        def wrapper(*args, **kwargs):
+            if session.get('role') != required_role:
+                flash("Unauthorized access.", "danger")
+                return redirect(url_for('index'))
+            return view_func(*args, **kwargs)
+        return wrapper
+    return decorator
 
 def get_db_connection():
     return psycopg2.connect(
@@ -22,6 +43,7 @@ def get_db_connection():
         password="admin",
         host="localhost"
     )
+
 @app.route('/')
 @login_required
 def index():
@@ -94,7 +116,7 @@ def login():
 
         conn = get_db_connection()
         cur = conn.cursor()
-        cur.execute("SELECT user_id, name FROM Users WHERE email = %s AND password_hash = %s", (email, password_hash))
+        user = cur.execute("SELECT * FROM Users WHERE email = %s AND password_hash = %s", (email, password,))
         user = cur.fetchone()
         cur.close()
         conn.close()
@@ -102,9 +124,12 @@ def login():
         if user:
             session['user_id'] = user[0]
             session['user_name'] = user[1]
+            session['role'] = user[2]
+            logging.info(f"Login successful for {email} (role: {user[2]})")
             flash("Login successful!", "success")
             return redirect(url_for('index'))
         else:
+            logging.warning(f"Failed login attempt for {email}")
             flash("Invalid email or password!", "danger")
 
     return render_template('login.html')
@@ -172,6 +197,7 @@ def edit_user(id):
 
 
 @app.route('/users/delete/<int:id>', methods=['POST'])
+@role_required('admin')
 def delete_user(id):
     conn = get_db_connection()
     cur = conn.cursor()
@@ -240,7 +266,10 @@ def edit_account(id):
     cur.close()
     conn.close()
     return render_template('edit_account.html', account=account)
+
 @app.route('/accounts/delete/<int:id>', methods=['POST'])
+@login_required
+@role_required('admin')
 def delete_account(id):
     conn = get_db_connection()
     cur = conn.cursor()
@@ -248,7 +277,10 @@ def delete_account(id):
     conn.commit()
     cur.close()
     conn.close()
+    logging.info(f"Account with ID {id} deleted by user {session.get('user_name')}")
+    flash("Account deleted successfully!", "danger")
     return redirect(url_for('accounts'))
+
 
 @app.route('/contacts')
 @login_required
@@ -323,6 +355,7 @@ def edit_contact(id):
     return render_template('edit_contact.html', contact=contact)
 
 @app.route('/contacts/delete/<int:id>', methods=['POST'])
+@role_required('admin')
 def delete_contact(id):
     conn = get_db_connection()
     cur = conn.cursor()
@@ -497,6 +530,7 @@ def edit_product(id):
 
 @app.route('/products/delete/<int:id>', methods=['POST'])
 @login_required
+@role_required('admin')
 def delete_product(id):
     conn = get_db_connection()
     cur = conn.cursor()
@@ -591,6 +625,7 @@ def edit_opportunity(id):
 # --- Delete Opportunity ---
 @app.route('/opportunities/delete/<int:id>', methods=['POST'])
 @login_required
+@role_required('admin')
 def delete_opportunity(id):
     conn = get_db_connection()
     cur = conn.cursor()
@@ -731,6 +766,7 @@ def edit_quote(id):
 # --- DELETE QUOTE ---
 @app.route('/quotes/delete/<int:id>', methods=['POST'])
 @login_required
+@role_required('admin')
 def delete_quote(id):
     conn = get_db_connection()
     cur = conn.cursor()
@@ -824,6 +860,7 @@ def edit_task(id):
 # --- Delete Task ---
 @app.route('/tasks/delete/<int:id>', methods=['POST'])
 @login_required
+@role_required('admin')
 def delete_task(id):
     conn = get_db_connection()
     cur = conn.cursor()
@@ -917,6 +954,7 @@ def edit_ticket(id):
 # --- Delete Ticket ---
 @app.route('/tickets/delete/<int:id>', methods=['POST'])
 @login_required
+@role_required('admin')
 def delete_ticket(id):
     conn = get_db_connection()
     cur = conn.cursor()
@@ -1004,4 +1042,3 @@ def tasks_summary_json():
     values = [row[1] for row in data]
 
     return {"labels": labels, "values": values}
-
