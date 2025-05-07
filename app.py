@@ -112,20 +112,22 @@ def login():
     if request.method == 'POST':
         email = request.form['email']
         password = request.form['password']
-        password_hash = hashlib.sha256(password.encode()).hexdigest()
 
         conn = get_db_connection()
         cur = conn.cursor()
-        user = cur.execute("SELECT * FROM Users WHERE email = %s AND password_hash = %s", (email, password,))
+
+        # Match email and plaintext password
+        cur.execute("SELECT * FROM Users WHERE email = %s AND password_hash = %s", (email, password))
         user = cur.fetchone()
+
         cur.close()
         conn.close()
 
         if user:
             session['user_id'] = user[0]
             session['user_name'] = user[1]
-            session['role'] = user[2]
-            logging.info(f"Login successful for {email} (role: {user[2]})")
+            session['role'] = user[3]  # Assuming column order: id, name, email, role, password
+            logging.info(f"Login successful for {email} (role: {user[3]})")
             flash("Login successful!", "success")
             return redirect(url_for('index'))
         else:
@@ -133,7 +135,7 @@ def login():
             flash("Invalid email or password!", "danger")
 
     return render_template('login.html')
-
+    
 @app.route('/logout')
 def logout():
     session.clear()
@@ -195,17 +197,36 @@ def edit_user(id):
     conn.close()
     return render_template('edit_user.html', user=user)
 
-
 @app.route('/users/delete/<int:id>', methods=['POST'])
-@role_required('admin')
 def delete_user(id):
     conn = get_db_connection()
     cur = conn.cursor()
+
+    # Check if user is referenced in any related tables
+    cur.execute("SELECT COUNT(*) FROM Accounts WHERE owner_id = %s", (id,))
+    if cur.fetchone()[0] > 0:
+        flash(" Cannot delete user: assigned to accounts.", "danger")
+        return redirect(url_for('users'))
+
+    cur.execute("SELECT COUNT(*) FROM Contacts WHERE created_by = %s", (id,))
+    if cur.fetchone()[0] > 0:
+        flash(" Cannot delete user: created contacts.", "danger")
+        return redirect(url_for('users'))
+
+    cur.execute("SELECT COUNT(*) FROM Tasks WHERE assigned_to = %s", (id,))
+    if cur.fetchone()[0] > 0:
+        flash(" Cannot delete user: assigned to tasks.", "danger")
+        return redirect(url_for('users'))
+
+    # If no references found, safe to delete
     cur.execute("DELETE FROM Users WHERE user_id = %s", (id,))
     conn.commit()
     cur.close()
     conn.close()
+
+    flash(" User deleted successfully.", "success")
     return redirect(url_for('users'))
+
 
 
 @app.route('/accounts')
@@ -267,9 +288,9 @@ def edit_account(id):
     conn.close()
     return render_template('edit_account.html', account=account)
 
-@app.route('/accounts/delete/<int:id>', methods=['POST'])
+@app.route('/accounts/delete/<int:id>', methods=['GET','POST'])
 @login_required
-@role_required('admin')
+@role_required('Manager')
 def delete_account(id):
     conn = get_db_connection()
     cur = conn.cursor()
@@ -354,8 +375,9 @@ def edit_contact(id):
     conn.close()
     return render_template('edit_contact.html', contact=contact)
 
-@app.route('/contacts/delete/<int:id>', methods=['POST'])
-@role_required('admin')
+@app.route('/contacts/delete/<int:id>', methods=['GET','POST'])
+@login_required
+@role_required('Manager')
 def delete_contact(id):
     conn = get_db_connection()
     cur = conn.cursor()
@@ -363,7 +385,9 @@ def delete_contact(id):
     conn.commit()
     cur.close()
     conn.close()
+    flash("Contact deleted successfully!", "danger") 
     return redirect(url_for('contacts'))
+
 @app.route('/leads')
 @login_required
 def leads():
@@ -431,8 +455,9 @@ def edit_lead(id):
     conn.close()
     return render_template('edit_lead.html', lead=lead, users=users)
 
-@app.route('/leads/delete/<int:id>', methods=['POST'])
+@app.route('/leads/delete/<int:id>', methods=['GET','POST'])
 @login_required
+@role_required('Manager')
 def delete_lead(id):
     conn = get_db_connection()
     cur = conn.cursor()
@@ -440,6 +465,7 @@ def delete_lead(id):
     conn.commit()
     cur.close()
     conn.close()
+    flash("Lead deleted successfully!", "danger") 
     return redirect(url_for('leads'))
 
 @app.route('/leads/convert/<int:id>', methods=['POST'])
@@ -528,9 +554,9 @@ def edit_product(id):
     conn.close()
     return render_template('edit_product.html', product=product)
 
-@app.route('/products/delete/<int:id>', methods=['POST'])
+@app.route('/products/delete/<int:id>', methods=['GET','POST'])
 @login_required
-@role_required('admin')
+@role_required('Manager')
 def delete_product(id):
     conn = get_db_connection()
     cur = conn.cursor()
@@ -623,9 +649,9 @@ def edit_opportunity(id):
     return render_template('edit_opportunity.html', opportunity=opportunity, accounts=accounts, users=users)
 
 # --- Delete Opportunity ---
-@app.route('/opportunities/delete/<int:id>', methods=['POST'])
+@app.route('/opportunities/delete/<int:id>', methods=['GET','POST'])
 @login_required
-@role_required('admin')
+@role_required('Manager')
 def delete_opportunity(id):
     conn = get_db_connection()
     cur = conn.cursor()
@@ -764,9 +790,9 @@ def edit_quote(id):
     return render_template('edit_quote.html', quote_id=id, status=quote_status, selected_items=selected_items, products=products)
 
 # --- DELETE QUOTE ---
-@app.route('/quotes/delete/<int:id>', methods=['POST'])
+@app.route('/quotes/delete/<int:id>', methods=['GET','POST'])
 @login_required
-@role_required('admin')
+@role_required('Manager')
 def delete_quote(id):
     conn = get_db_connection()
     cur = conn.cursor()
@@ -858,9 +884,9 @@ def edit_task(id):
     return render_template('edit_task.html', task=task, users=users)
 
 # --- Delete Task ---
-@app.route('/tasks/delete/<int:id>', methods=['POST'])
+@app.route('/tasks/delete/<int:id>', methods=['GET','POST'])
 @login_required
-@role_required('admin')
+@role_required('Manager')
 def delete_task(id):
     conn = get_db_connection()
     cur = conn.cursor()
@@ -952,9 +978,9 @@ def edit_ticket(id):
     return render_template('edit_ticket.html', ticket=ticket, contacts=contacts)
 
 # --- Delete Ticket ---
-@app.route('/tickets/delete/<int:id>', methods=['POST'])
+@app.route('/tickets/delete/<int:id>', methods=['GET','POST'])
 @login_required
-@role_required('admin')
+@role_required('Manager')
 def delete_ticket(id):
     conn = get_db_connection()
     cur = conn.cursor()
