@@ -39,30 +39,55 @@
     <div class="col-md-6 mb-4">
       <div class="card shadow-sm p-3">
         <h5 class="card-title text-center">Sales by Quarter</h5>
-        <canvas id="salesByQuarterChart" height="200"></canvas>
+        <div class="chart-container">
+          <canvas id="salesByQuarterChart" width="400" height="300"></canvas>
+        </div>
       </div>
     </div>
     <div class="col-md-6 mb-4">
       <div class="card shadow-sm p-3">
         <h5 class="card-title text-center">Sales by Stage</h5>
-        <canvas id="salesByStageChart" height="200"></canvas>
+        <div class="chart-container">
+          <canvas id="salesByStageChart" width="400" height="300"></canvas>
+        </div>
       </div>
     </div>
     <div class="col-md-6 mb-4">
       <div class="card shadow-sm p-3">
         <h5 class="card-title text-center">Sales by Region</h5>
-        <canvas id="salesByRegionChart" height="200"></canvas>
+        <div class="chart-container">
+          <canvas id="salesByRegionChart" width="400" height="300"></canvas>
+        </div>
       </div>
     </div>
     <div class="col-md-6 mb-4">
       <div class="card shadow-sm p-3">
         <h5 class="card-title text-center">Expected Revenue by Account</h5>
-        <canvas id="revenueByAccountChart" height="200"></canvas>
+        <div class="chart-container">
+          <canvas id="revenueByAccountChart" width="400" height="300"></canvas>
+        </div>
       </div>
     </div>
   </div>
 
 </div>
+
+<style>
+  .chart-container {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .chart-container canvas {
+    width: 400px !important;
+    height: 300px !important;
+    max-width: 100%;
+    max-height: 100%;
+  }
+</style>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
@@ -83,8 +108,9 @@
             }]
           },
           options: {
-            responsive: true,
-            plugins: { legend: { display: false } }
+            responsive: false,
+            maintainAspectRatio: false,
+            plugins: { legend: { display: type === 'bar' ? false : true } }
           }
         });
       });

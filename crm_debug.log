@@ -2196,3 +2196,681 @@ DETAIL:  Key (product_id)=(1) is still referenced from table "quote_items".
 2025-05-07 14:04:41,585 - INFO - 127.0.0.1 - - [07/May/2025 14:04:41] "GET /tickets/summary.json HTTP/1.1" 200 -
 2025-05-07 14:04:41,587 - INFO - 127.0.0.1 - - [07/May/2025 14:04:41] "GET /tasks/summary.json HTTP/1.1" 200 -
 2025-05-07 14:04:41,593 - INFO - 127.0.0.1 - - [07/May/2025 14:04:41] "GET /leads/summary.json HTTP/1.1" 200 -
+2025-06-01 15:58:14,064 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-06-01 15:58:14,065 - INFO - [33mPress CTRL+C to quit[0m
+2025-06-01 15:58:33,535 - INFO - 127.0.0.1 - - [01/Jun/2025 15:58:33] "GET /welcome HTTP/1.1" 200 -
+2025-06-01 15:58:33,803 - INFO - 127.0.0.1 - - [01/Jun/2025 15:58:33] "GET /static/images/crm_name-removebg-preview.png HTTP/1.1" 200 -
+2025-06-01 15:58:33,811 - INFO - 127.0.0.1 - - [01/Jun/2025 15:58:33] "GET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1" 200 -
+2025-06-01 15:58:34,629 - INFO - 127.0.0.1 - - [01/Jun/2025 15:58:34] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-06-01 15:58:50,994 - INFO - 127.0.0.1 - - [01/Jun/2025 15:58:50] "GET /welcome HTTP/1.1" 200 -
+2025-06-01 15:58:51,062 - INFO - 127.0.0.1 - - [01/Jun/2025 15:58:51] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-01 15:58:51,069 - INFO - 127.0.0.1 - - [01/Jun/2025 15:58:51] "[36mGET /static/images/crm_name-removebg-preview.png HTTP/1.1[0m" 304 -
+2025-06-01 15:58:56,135 - INFO - 127.0.0.1 - - [01/Jun/2025 15:58:56] "[32mGET / HTTP/1.1[0m" 302 -
+2025-06-01 15:58:56,228 - INFO - 127.0.0.1 - - [01/Jun/2025 15:58:56] "GET /login HTTP/1.1" 200 -
+2025-06-01 15:58:56,289 - INFO - 127.0.0.1 - - [01/Jun/2025 15:58:56] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-01 15:58:56,315 - INFO - 127.0.0.1 - - [01/Jun/2025 15:58:56] "GET /static/images/Benefits%20of%20Business%20Intelligence%20Software%20Tools.jpeg HTTP/1.1" 200 -
+2025-06-01 15:59:13,197 - WARNING - Failed login attempt for marium.imranrauf@gmail.com
+2025-06-01 15:59:13,199 - INFO - 127.0.0.1 - - [01/Jun/2025 15:59:13] "POST /login HTTP/1.1" 200 -
+2025-06-01 15:59:13,244 - INFO - 127.0.0.1 - - [01/Jun/2025 15:59:13] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-01 15:59:13,276 - INFO - 127.0.0.1 - - [01/Jun/2025 15:59:13] "[36mGET /static/images/Benefits%20of%20Business%20Intelligence%20Software%20Tools.jpeg HTTP/1.1[0m" 304 -
+2025-06-01 15:59:22,425 - WARNING - Failed login attempt for marium.imranrauf@gmail.com
+2025-06-01 15:59:22,426 - INFO - 127.0.0.1 - - [01/Jun/2025 15:59:22] "POST /login HTTP/1.1" 200 -
+2025-06-01 15:59:22,458 - INFO - 127.0.0.1 - - [01/Jun/2025 15:59:22] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-01 15:59:22,479 - INFO - 127.0.0.1 - - [01/Jun/2025 15:59:22] "[36mGET /static/images/Benefits%20of%20Business%20Intelligence%20Software%20Tools.jpeg HTTP/1.1[0m" 304 -
+2025-06-01 16:00:20,040 - INFO - 127.0.0.1 - - [01/Jun/2025 16:00:20] "[32mGET / HTTP/1.1[0m" 302 -
+2025-06-01 16:00:20,054 - INFO - 127.0.0.1 - - [01/Jun/2025 16:00:20] "GET /login HTTP/1.1" 200 -
+2025-06-01 16:00:20,103 - INFO - 127.0.0.1 - - [01/Jun/2025 16:00:20] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-01 16:00:20,118 - INFO - 127.0.0.1 - - [01/Jun/2025 16:00:20] "[36mGET /static/images/Benefits%20of%20Business%20Intelligence%20Software%20Tools.jpeg HTTP/1.1[0m" 304 -
+2025-06-01 16:00:37,802 - INFO - Login successful for marium@gmail.com (role: Manager)
+2025-06-01 16:00:37,803 - INFO - 127.0.0.1 - - [01/Jun/2025 16:00:37] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-06-01 16:00:38,061 - INFO - 127.0.0.1 - - [01/Jun/2025 16:00:38] "GET / HTTP/1.1" 200 -
+2025-06-01 16:00:38,120 - INFO - 127.0.0.1 - - [01/Jun/2025 16:00:38] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-01 16:00:38,383 - INFO - 127.0.0.1 - - [01/Jun/2025 16:00:38] "GET /leads/summary.json HTTP/1.1" 200 -
+2025-06-01 16:00:38,383 - INFO - 127.0.0.1 - - [01/Jun/2025 16:00:38] "GET /tickets/summary.json HTTP/1.1" 200 -
+2025-06-01 16:00:38,384 - INFO - 127.0.0.1 - - [01/Jun/2025 16:00:38] "GET /tasks/summary.json HTTP/1.1" 200 -
+2025-06-01 16:00:38,385 - INFO - 127.0.0.1 - - [01/Jun/2025 16:00:38] "GET /opportunities/summary.json HTTP/1.1" 200 -
+2025-06-01 16:01:22,801 - INFO - 127.0.0.1 - - [01/Jun/2025 16:01:22] "GET / HTTP/1.1" 200 -
+2025-06-01 16:01:22,838 - INFO - 127.0.0.1 - - [01/Jun/2025 16:01:22] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-01 16:01:23,026 - INFO - 127.0.0.1 - - [01/Jun/2025 16:01:23] "GET /opportunities/summary.json HTTP/1.1" 200 -
+2025-06-01 16:01:23,034 - INFO - 127.0.0.1 - - [01/Jun/2025 16:01:23] "GET /leads/summary.json HTTP/1.1" 200 -
+2025-06-01 16:01:23,037 - INFO - 127.0.0.1 - - [01/Jun/2025 16:01:23] "GET /tasks/summary.json HTTP/1.1" 200 -
+2025-06-01 16:01:23,038 - INFO - 127.0.0.1 - - [01/Jun/2025 16:01:23] "GET /tickets/summary.json HTTP/1.1" 200 -
+2025-06-01 16:03:06,310 - INFO - 127.0.0.1 - - [01/Jun/2025 16:03:06] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-06-01 16:03:06,340 - INFO - 127.0.0.1 - - [01/Jun/2025 16:03:06] "GET /login HTTP/1.1" 200 -
+2025-06-01 16:03:06,478 - INFO - 127.0.0.1 - - [01/Jun/2025 16:03:06] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-01 16:03:06,485 - INFO - 127.0.0.1 - - [01/Jun/2025 16:03:06] "[36mGET /static/images/Benefits%20of%20Business%20Intelligence%20Software%20Tools.jpeg HTTP/1.1[0m" 304 -
+2025-06-01 16:03:22,985 - INFO - Login successful for brian59@example.org (role: Sales Rep)
+2025-06-01 16:03:22,987 - INFO - 127.0.0.1 - - [01/Jun/2025 16:03:22] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-06-01 16:03:23,185 - INFO - 127.0.0.1 - - [01/Jun/2025 16:03:23] "GET / HTTP/1.1" 200 -
+2025-06-01 16:03:23,280 - INFO - 127.0.0.1 - - [01/Jun/2025 16:03:23] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-01 16:03:23,454 - INFO - 127.0.0.1 - - [01/Jun/2025 16:03:23] "GET /leads/summary.json HTTP/1.1" 200 -
+2025-06-01 16:03:23,458 - INFO - 127.0.0.1 - - [01/Jun/2025 16:03:23] "GET /opportunities/summary.json HTTP/1.1" 200 -
+2025-06-01 16:03:23,469 - INFO - 127.0.0.1 - - [01/Jun/2025 16:03:23] "GET /tickets/summary.json HTTP/1.1" 200 -
+2025-06-01 16:03:23,470 - INFO - 127.0.0.1 - - [01/Jun/2025 16:03:23] "GET /tasks/summary.json HTTP/1.1" 200 -
+2025-06-01 16:03:41,316 - INFO - 127.0.0.1 - - [01/Jun/2025 16:03:41] "GET /welcome HTTP/1.1" 200 -
+2025-06-01 16:03:41,399 - INFO - 127.0.0.1 - - [01/Jun/2025 16:03:41] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-01 16:03:41,403 - INFO - 127.0.0.1 - - [01/Jun/2025 16:03:41] "[36mGET /static/images/crm_name-removebg-preview.png HTTP/1.1[0m" 304 -
+2025-06-01 16:03:46,947 - INFO - 127.0.0.1 - - [01/Jun/2025 16:03:46] "GET /users HTTP/1.1" 200 -
+2025-06-01 16:03:47,026 - INFO - 127.0.0.1 - - [01/Jun/2025 16:03:47] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-01 16:03:53,548 - INFO - 127.0.0.1 - - [01/Jun/2025 16:03:53] "GET /accounts HTTP/1.1" 200 -
+2025-06-01 16:03:53,592 - INFO - 127.0.0.1 - - [01/Jun/2025 16:03:53] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-01 16:03:57,709 - INFO - 127.0.0.1 - - [01/Jun/2025 16:03:57] "GET /contacts HTTP/1.1" 200 -
+2025-06-01 16:03:57,902 - INFO - 127.0.0.1 - - [01/Jun/2025 16:03:57] "GET /contacts HTTP/1.1" 200 -
+2025-06-01 16:03:57,945 - INFO - 127.0.0.1 - - [01/Jun/2025 16:03:57] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-01 16:04:33,099 - INFO - 127.0.0.1 - - [01/Jun/2025 16:04:33] "GET /welcome HTTP/1.1" 200 -
+2025-06-01 16:04:33,198 - INFO - 127.0.0.1 - - [01/Jun/2025 16:04:33] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-01 16:04:33,201 - INFO - 127.0.0.1 - - [01/Jun/2025 16:04:33] "[36mGET /static/images/crm_name-removebg-preview.png HTTP/1.1[0m" 304 -
+2025-06-01 16:04:38,955 - INFO - 127.0.0.1 - - [01/Jun/2025 16:04:38] "GET /accounts HTTP/1.1" 200 -
+2025-06-01 16:04:39,039 - INFO - 127.0.0.1 - - [01/Jun/2025 16:04:39] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-01 16:04:40,657 - INFO - 127.0.0.1 - - [01/Jun/2025 16:04:40] "GET /contacts HTTP/1.1" 200 -
+2025-06-01 16:04:40,707 - INFO - 127.0.0.1 - - [01/Jun/2025 16:04:40] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-01 16:04:43,834 - INFO - 127.0.0.1 - - [01/Jun/2025 16:04:43] "GET /products HTTP/1.1" 200 -
+2025-06-01 16:04:43,877 - INFO - 127.0.0.1 - - [01/Jun/2025 16:04:43] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-01 16:04:45,545 - INFO - 127.0.0.1 - - [01/Jun/2025 16:04:45] "GET /opportunities HTTP/1.1" 200 -
+2025-06-01 16:04:45,592 - INFO - 127.0.0.1 - - [01/Jun/2025 16:04:45] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-01 16:04:47,110 - INFO - 127.0.0.1 - - [01/Jun/2025 16:04:47] "GET /leads HTTP/1.1" 200 -
+2025-06-01 16:04:47,143 - INFO - 127.0.0.1 - - [01/Jun/2025 16:04:47] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-01 16:04:48,607 - INFO - 127.0.0.1 - - [01/Jun/2025 16:04:48] "GET /quotes HTTP/1.1" 200 -
+2025-06-01 16:04:48,654 - INFO - 127.0.0.1 - - [01/Jun/2025 16:04:48] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-01 16:04:49,883 - INFO - 127.0.0.1 - - [01/Jun/2025 16:04:49] "GET /tasks HTTP/1.1" 200 -
+2025-06-01 16:04:49,959 - INFO - 127.0.0.1 - - [01/Jun/2025 16:04:49] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-01 16:04:51,470 - INFO - 127.0.0.1 - - [01/Jun/2025 16:04:51] "GET /tickets HTTP/1.1" 200 -
+2025-06-01 16:04:51,518 - INFO - 127.0.0.1 - - [01/Jun/2025 16:04:51] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-01 16:04:53,048 - INFO - 127.0.0.1 - - [01/Jun/2025 16:04:53] "GET /quotes HTTP/1.1" 200 -
+2025-06-01 16:04:53,095 - INFO - 127.0.0.1 - - [01/Jun/2025 16:04:53] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-01 16:05:14,156 - INFO - 127.0.0.1 - - [01/Jun/2025 16:05:14] "GET /tasks HTTP/1.1" 200 -
+2025-06-01 16:05:14,225 - INFO - 127.0.0.1 - - [01/Jun/2025 16:05:14] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-01 16:05:15,664 - INFO - 127.0.0.1 - - [01/Jun/2025 16:05:15] "GET /tickets HTTP/1.1" 200 -
+2025-06-01 16:05:15,727 - INFO - 127.0.0.1 - - [01/Jun/2025 16:05:15] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-01 16:10:52,544 - INFO - 127.0.0.1 - - [01/Jun/2025 16:10:52] "GET /users HTTP/1.1" 200 -
+2025-06-01 16:10:52,607 - INFO - 127.0.0.1 - - [01/Jun/2025 16:10:52] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-01 16:10:55,020 - INFO - 127.0.0.1 - - [01/Jun/2025 16:10:55] "GET /welcome HTTP/1.1" 200 -
+2025-06-01 16:10:55,106 - INFO - 127.0.0.1 - - [01/Jun/2025 16:10:55] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-01 16:10:55,112 - INFO - 127.0.0.1 - - [01/Jun/2025 16:10:55] "[36mGET /static/images/crm_name-removebg-preview.png HTTP/1.1[0m" 304 -
+2025-06-01 16:10:59,265 - INFO - 127.0.0.1 - - [01/Jun/2025 16:10:59] "GET / HTTP/1.1" 200 -
+2025-06-01 16:10:59,340 - INFO - 127.0.0.1 - - [01/Jun/2025 16:10:59] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-01 16:10:59,570 - INFO - 127.0.0.1 - - [01/Jun/2025 16:10:59] "GET /leads/summary.json HTTP/1.1" 200 -
+2025-06-01 16:10:59,577 - INFO - 127.0.0.1 - - [01/Jun/2025 16:10:59] "GET /opportunities/summary.json HTTP/1.1" 200 -
+2025-06-01 16:10:59,583 - INFO - 127.0.0.1 - - [01/Jun/2025 16:10:59] "GET /tasks/summary.json HTTP/1.1" 200 -
+2025-06-01 16:10:59,589 - INFO - 127.0.0.1 - - [01/Jun/2025 16:10:59] "GET /tickets/summary.json HTTP/1.1" 200 -
+2025-06-01 16:11:13,675 - INFO - 127.0.0.1 - - [01/Jun/2025 16:11:13] "GET /leads HTTP/1.1" 200 -
+2025-06-01 16:11:13,722 - INFO - 127.0.0.1 - - [01/Jun/2025 16:11:13] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-01 16:12:39,426 - INFO - 127.0.0.1 - - [01/Jun/2025 16:12:39] "GET / HTTP/1.1" 200 -
+2025-06-01 16:12:39,508 - INFO - 127.0.0.1 - - [01/Jun/2025 16:12:39] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-01 16:12:39,679 - INFO - 127.0.0.1 - - [01/Jun/2025 16:12:39] "GET /tasks/summary.json HTTP/1.1" 200 -
+2025-06-01 16:12:39,680 - INFO - 127.0.0.1 - - [01/Jun/2025 16:12:39] "GET /leads/summary.json HTTP/1.1" 200 -
+2025-06-01 16:12:39,681 - INFO - 127.0.0.1 - - [01/Jun/2025 16:12:39] "GET /opportunities/summary.json HTTP/1.1" 200 -
+2025-06-01 16:12:39,692 - INFO - 127.0.0.1 - - [01/Jun/2025 16:12:39] "GET /tickets/summary.json HTTP/1.1" 200 -
+2025-06-01 16:14:19,045 - INFO - 127.0.0.1 - - [01/Jun/2025 16:14:19] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-06-01 16:14:19,073 - INFO - 127.0.0.1 - - [01/Jun/2025 16:14:19] "GET /login HTTP/1.1" 200 -
+2025-06-01 16:14:19,185 - INFO - 127.0.0.1 - - [01/Jun/2025 16:14:19] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-01 16:14:19,195 - INFO - 127.0.0.1 - - [01/Jun/2025 16:14:19] "[36mGET /static/images/Benefits%20of%20Business%20Intelligence%20Software%20Tools.jpeg HTTP/1.1[0m" 304 -
+2025-06-01 16:15:23,759 - INFO - Login successful for marium@gmail.com (role: Manager)
+2025-06-01 16:15:23,761 - INFO - 127.0.0.1 - - [01/Jun/2025 16:15:23] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-06-01 16:15:23,999 - INFO - 127.0.0.1 - - [01/Jun/2025 16:15:23] "GET / HTTP/1.1" 200 -
+2025-06-01 16:15:24,060 - INFO - 127.0.0.1 - - [01/Jun/2025 16:15:24] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-01 16:15:24,238 - INFO - 127.0.0.1 - - [01/Jun/2025 16:15:24] "GET /opportunities/summary.json HTTP/1.1" 200 -
+2025-06-01 16:15:24,256 - INFO - 127.0.0.1 - - [01/Jun/2025 16:15:24] "GET /tickets/summary.json HTTP/1.1" 200 -
+2025-06-01 16:15:24,272 - INFO - 127.0.0.1 - - [01/Jun/2025 16:15:24] "GET /tasks/summary.json HTTP/1.1" 200 -
+2025-06-01 16:15:24,310 - INFO - 127.0.0.1 - - [01/Jun/2025 16:15:24] "GET /leads/summary.json HTTP/1.1" 200 -
+2025-06-01 16:15:35,618 - INFO - 127.0.0.1 - - [01/Jun/2025 16:15:35] "GET /users HTTP/1.1" 200 -
+2025-06-01 16:15:35,668 - INFO - 127.0.0.1 - - [01/Jun/2025 16:15:35] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-01 16:15:43,513 - INFO - 127.0.0.1 - - [01/Jun/2025 16:15:43] "GET / HTTP/1.1" 200 -
+2025-06-01 16:15:43,556 - INFO - 127.0.0.1 - - [01/Jun/2025 16:15:43] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-01 16:15:43,714 - INFO - 127.0.0.1 - - [01/Jun/2025 16:15:43] "GET /opportunities/summary.json HTTP/1.1" 200 -
+2025-06-01 16:15:43,723 - INFO - 127.0.0.1 - - [01/Jun/2025 16:15:43] "GET /leads/summary.json HTTP/1.1" 200 -
+2025-06-01 16:15:43,724 - INFO - 127.0.0.1 - - [01/Jun/2025 16:15:43] "GET /tasks/summary.json HTTP/1.1" 200 -
+2025-06-01 16:15:43,782 - INFO - 127.0.0.1 - - [01/Jun/2025 16:15:43] "GET /tickets/summary.json HTTP/1.1" 200 -
+2025-06-01 16:15:45,402 - INFO - 127.0.0.1 - - [01/Jun/2025 16:15:45] "GET /users HTTP/1.1" 200 -
+2025-06-01 16:15:45,480 - INFO - 127.0.0.1 - - [01/Jun/2025 16:15:45] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-01 16:15:49,619 - INFO - 127.0.0.1 - - [01/Jun/2025 16:15:49] "[32mPOST /users/delete/1 HTTP/1.1[0m" 302 -
+2025-06-01 16:15:49,800 - INFO - 127.0.0.1 - - [01/Jun/2025 16:15:49] "GET /users HTTP/1.1" 200 -
+2025-06-01 16:15:49,861 - INFO - 127.0.0.1 - - [01/Jun/2025 16:15:49] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-01 16:15:51,739 - INFO - 127.0.0.1 - - [01/Jun/2025 16:15:51] "GET / HTTP/1.1" 200 -
+2025-06-01 16:15:51,818 - INFO - 127.0.0.1 - - [01/Jun/2025 16:15:51] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-01 16:15:51,992 - INFO - 127.0.0.1 - - [01/Jun/2025 16:15:51] "GET /opportunities/summary.json HTTP/1.1" 200 -
+2025-06-01 16:15:51,992 - INFO - 127.0.0.1 - - [01/Jun/2025 16:15:51] "GET /tickets/summary.json HTTP/1.1" 200 -
+2025-06-01 16:15:52,000 - INFO - 127.0.0.1 - - [01/Jun/2025 16:15:52] "GET /leads/summary.json HTTP/1.1" 200 -
+2025-06-01 16:15:52,002 - INFO - 127.0.0.1 - - [01/Jun/2025 16:15:52] "GET /tasks/summary.json HTTP/1.1" 200 -
+2025-06-01 16:15:53,120 - INFO - 127.0.0.1 - - [01/Jun/2025 16:15:53] "GET /users HTTP/1.1" 200 -
+2025-06-01 16:15:53,225 - INFO - 127.0.0.1 - - [01/Jun/2025 16:15:53] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-01 16:15:58,196 - INFO - 127.0.0.1 - - [01/Jun/2025 16:15:58] "[32mPOST /users/delete/1 HTTP/1.1[0m" 302 -
+2025-06-01 16:15:58,365 - INFO - 127.0.0.1 - - [01/Jun/2025 16:15:58] "GET /users HTTP/1.1" 200 -
+2025-06-01 16:15:58,412 - INFO - 127.0.0.1 - - [01/Jun/2025 16:15:58] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-01 16:16:19,198 - INFO - 127.0.0.1 - - [01/Jun/2025 16:16:19] "GET /accounts HTTP/1.1" 200 -
+2025-06-01 16:16:19,262 - INFO - 127.0.0.1 - - [01/Jun/2025 16:16:19] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-01 16:16:21,581 - INFO - 127.0.0.1 - - [01/Jun/2025 16:16:21] "GET /users HTTP/1.1" 200 -
+2025-06-01 16:16:21,632 - INFO - 127.0.0.1 - - [01/Jun/2025 16:16:21] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-01 16:16:25,062 - INFO - 127.0.0.1 - - [01/Jun/2025 16:16:25] "GET /accounts HTTP/1.1" 200 -
+2025-06-01 16:16:25,131 - INFO - 127.0.0.1 - - [01/Jun/2025 16:16:25] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-01 16:16:29,150 - INFO - 127.0.0.1 - - [01/Jun/2025 16:16:29] "GET /contacts HTTP/1.1" 200 -
+2025-06-01 16:16:29,200 - INFO - 127.0.0.1 - - [01/Jun/2025 16:16:29] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-01 16:16:39,421 - INFO - 127.0.0.1 - - [01/Jun/2025 16:16:39] "GET /users HTTP/1.1" 200 -
+2025-06-01 16:16:39,455 - INFO - 127.0.0.1 - - [01/Jun/2025 16:16:39] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-01 16:16:48,557 - INFO - 127.0.0.1 - - [01/Jun/2025 16:16:48] "GET /contacts HTTP/1.1" 200 -
+2025-06-01 16:16:48,626 - INFO - 127.0.0.1 - - [01/Jun/2025 16:16:48] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-01 16:16:58,867 - INFO - 127.0.0.1 - - [01/Jun/2025 16:16:58] "GET /products HTTP/1.1" 200 -
+2025-06-01 16:16:58,938 - INFO - 127.0.0.1 - - [01/Jun/2025 16:16:58] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-01 16:17:09,923 - INFO - 127.0.0.1 - - [01/Jun/2025 16:17:09] "GET /opportunities HTTP/1.1" 200 -
+2025-06-01 16:17:09,970 - INFO - 127.0.0.1 - - [01/Jun/2025 16:17:09] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-01 16:17:16,857 - INFO - 127.0.0.1 - - [01/Jun/2025 16:17:16] "GET /opportunities/add HTTP/1.1" 200 -
+2025-06-01 16:17:16,925 - INFO - 127.0.0.1 - - [01/Jun/2025 16:17:16] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-01 16:17:21,114 - INFO - 127.0.0.1 - - [01/Jun/2025 16:17:21] "GET /opportunities HTTP/1.1" 200 -
+2025-06-01 16:17:21,190 - INFO - 127.0.0.1 - - [01/Jun/2025 16:17:21] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-01 16:17:23,068 - INFO - 127.0.0.1 - - [01/Jun/2025 16:17:23] "GET /opportunities HTTP/1.1" 200 -
+2025-06-01 16:17:23,120 - INFO - 127.0.0.1 - - [01/Jun/2025 16:17:23] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-01 16:17:25,665 - INFO - 127.0.0.1 - - [01/Jun/2025 16:17:25] "GET /opportunities/add HTTP/1.1" 200 -
+2025-06-01 16:17:25,749 - INFO - 127.0.0.1 - - [01/Jun/2025 16:17:25] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-01 16:18:01,157 - INFO - 127.0.0.1 - - [01/Jun/2025 16:18:01] "GET /leads HTTP/1.1" 200 -
+2025-06-01 16:18:01,226 - INFO - 127.0.0.1 - - [01/Jun/2025 16:18:01] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-01 16:21:36,421 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-06-01 16:21:36,422 - INFO - [33mPress CTRL+C to quit[0m
+2025-06-01 16:21:40,595 - ERROR - Exception on /leads [GET]
+Traceback (most recent call last):
+  File "C:\flask-crm-project\.venv\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\flask-crm-project\.venv\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\flask-crm-project\.venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\flask-crm-project\.venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\flask-crm-project\app.py", line 25, in wrapper
+    return view_func(*args, **kwargs)
+  File "C:\flask-crm-project\app.py", line 404, in leads
+    return render_template('leads.html', leads=leads)
+  File "C:\flask-crm-project\.venv\Lib\site-packages\flask\templating.py", line 150, in render_template
+    return _render(app, template, context)
+  File "C:\flask-crm-project\.venv\Lib\site-packages\flask\templating.py", line 131, in _render
+    rv = template.render(context)
+  File "C:\flask-crm-project\.venv\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\flask-crm-project\.venv\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\flask-crm-project\templates\leads.html", line 1, in top-level template code
+    {% extends 'base.html' %}
+  File "C:\flask-crm-project\templates\base.html", line 32, in top-level template code
+    {% for page, label in [
+    ^^^^^^^^^^^^^^^^^
+TypeError: 'tuple' object is not callable
+2025-06-01 16:21:40,683 - INFO - 127.0.0.1 - - [01/Jun/2025 16:21:40] "[35m[1mGET /leads HTTP/1.1[0m" 500 -
+2025-06-01 16:21:45,098 - ERROR - Exception on / [GET]
+Traceback (most recent call last):
+  File "C:\flask-crm-project\.venv\Lib\site-packages\flask\app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "C:\flask-crm-project\.venv\Lib\site-packages\flask\app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "C:\flask-crm-project\.venv\Lib\site-packages\flask\app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "C:\flask-crm-project\.venv\Lib\site-packages\flask\app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^
+  File "C:\flask-crm-project\app.py", line 25, in wrapper
+    return view_func(*args, **kwargs)
+  File "C:\flask-crm-project\app.py", line 85, in index
+    return render_template('index.html',
+        user_count=user_count,
+    ...<6 lines>...
+        tasks_due_week=tasks_due_week
+    )
+  File "C:\flask-crm-project\.venv\Lib\site-packages\flask\templating.py", line 150, in render_template
+    return _render(app, template, context)
+  File "C:\flask-crm-project\.venv\Lib\site-packages\flask\templating.py", line 131, in _render
+    rv = template.render(context)
+  File "C:\flask-crm-project\.venv\Lib\site-packages\jinja2\environment.py", line 1295, in render
+    self.environment.handle_exception()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\flask-crm-project\.venv\Lib\site-packages\jinja2\environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "C:\flask-crm-project\templates\index.html", line 1, in top-level template code
+    {% extends 'base.html' %}
+  File "C:\flask-crm-project\templates\base.html", line 32, in top-level template code
+    {% for page, label in [
+    ^^^^^^^^^^^^^^^^^
+TypeError: 'tuple' object is not callable
+2025-06-01 16:21:45,107 - INFO - 127.0.0.1 - - [01/Jun/2025 16:21:45] "[35m[1mGET / HTTP/1.1[0m" 500 -
+2025-06-01 16:24:05,323 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-06-01 16:24:05,323 - INFO - [33mPress CTRL+C to quit[0m
+2025-06-01 16:24:21,006 - INFO - 127.0.0.1 - - [01/Jun/2025 16:24:21] "GET /welcome HTTP/1.1" 200 -
+2025-06-01 16:24:21,227 - INFO - 127.0.0.1 - - [01/Jun/2025 16:24:21] "[36mGET /static/images/crm_name-removebg-preview.png HTTP/1.1[0m" 304 -
+2025-06-01 16:24:21,228 - INFO - 127.0.0.1 - - [01/Jun/2025 16:24:21] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-01 16:24:27,395 - INFO - 127.0.0.1 - - [01/Jun/2025 16:24:27] "GET /leads HTTP/1.1" 200 -
+2025-06-01 16:24:27,470 - INFO - 127.0.0.1 - - [01/Jun/2025 16:24:27] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-01 16:24:31,783 - INFO - 127.0.0.1 - - [01/Jun/2025 16:24:31] "GET /opportunities HTTP/1.1" 200 -
+2025-06-01 16:24:31,829 - INFO - 127.0.0.1 - - [01/Jun/2025 16:24:31] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-01 16:24:33,484 - INFO - 127.0.0.1 - - [01/Jun/2025 16:24:33] "GET /quotes HTTP/1.1" 200 -
+2025-06-01 16:24:33,527 - INFO - 127.0.0.1 - - [01/Jun/2025 16:24:33] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-01 16:24:34,931 - INFO - 127.0.0.1 - - [01/Jun/2025 16:24:34] "GET /tasks HTTP/1.1" 200 -
+2025-06-01 16:24:34,978 - INFO - 127.0.0.1 - - [01/Jun/2025 16:24:34] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-01 16:24:36,458 - INFO - 127.0.0.1 - - [01/Jun/2025 16:24:36] "GET /tickets HTTP/1.1" 200 -
+2025-06-01 16:24:36,503 - INFO - 127.0.0.1 - - [01/Jun/2025 16:24:36] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-01 16:24:46,242 - INFO - 127.0.0.1 - - [01/Jun/2025 16:24:46] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-06-01 16:24:46,267 - INFO - 127.0.0.1 - - [01/Jun/2025 16:24:46] "GET /login HTTP/1.1" 200 -
+2025-06-01 16:24:46,341 - INFO - 127.0.0.1 - - [01/Jun/2025 16:24:46] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-01 16:24:46,349 - INFO - 127.0.0.1 - - [01/Jun/2025 16:24:46] "[36mGET /static/images/Benefits%20of%20Business%20Intelligence%20Software%20Tools.jpeg HTTP/1.1[0m" 304 -
+2025-06-01 16:24:48,857 - INFO - 127.0.0.1 - - [01/Jun/2025 16:24:48] "[32mGET / HTTP/1.1[0m" 302 -
+2025-06-01 16:24:48,872 - INFO - 127.0.0.1 - - [01/Jun/2025 16:24:48] "GET /login HTTP/1.1" 200 -
+2025-06-01 16:24:48,942 - INFO - 127.0.0.1 - - [01/Jun/2025 16:24:48] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-01 16:24:48,964 - INFO - 127.0.0.1 - - [01/Jun/2025 16:24:48] "[36mGET /static/images/Benefits%20of%20Business%20Intelligence%20Software%20Tools.jpeg HTTP/1.1[0m" 304 -
+2025-06-01 16:24:51,675 - INFO - 127.0.0.1 - - [01/Jun/2025 16:24:51] "GET /welcome HTTP/1.1" 200 -
+2025-06-01 16:24:51,727 - INFO - 127.0.0.1 - - [01/Jun/2025 16:24:51] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-01 16:24:51,728 - INFO - 127.0.0.1 - - [01/Jun/2025 16:24:51] "[36mGET /static/images/crm_name-removebg-preview.png HTTP/1.1[0m" 304 -
+2025-06-01 16:25:04,199 - INFO - 127.0.0.1 - - [01/Jun/2025 16:25:04] "GET /welcome HTTP/1.1" 200 -
+2025-06-01 16:25:04,265 - INFO - 127.0.0.1 - - [01/Jun/2025 16:25:04] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-01 16:25:04,267 - INFO - 127.0.0.1 - - [01/Jun/2025 16:25:04] "[36mGET /static/images/crm_name-removebg-preview.png HTTP/1.1[0m" 304 -
+2025-06-01 16:25:08,585 - INFO - 127.0.0.1 - - [01/Jun/2025 16:25:08] "GET /welcome HTTP/1.1" 200 -
+2025-06-01 16:25:08,661 - INFO - 127.0.0.1 - - [01/Jun/2025 16:25:08] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-01 16:25:08,668 - INFO - 127.0.0.1 - - [01/Jun/2025 16:25:08] "[36mGET /static/images/crm_name-removebg-preview.png HTTP/1.1[0m" 304 -
+2025-06-01 16:25:09,674 - INFO - 127.0.0.1 - - [01/Jun/2025 16:25:09] "GET /welcome HTTP/1.1" 200 -
+2025-06-01 16:25:09,697 - INFO - 127.0.0.1 - - [01/Jun/2025 16:25:09] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-01 16:25:09,700 - INFO - 127.0.0.1 - - [01/Jun/2025 16:25:09] "[36mGET /static/images/crm_name-removebg-preview.png HTTP/1.1[0m" 304 -
+2025-06-01 16:25:16,250 - INFO - 127.0.0.1 - - [01/Jun/2025 16:25:16] "GET /welcome HTTP/1.1" 200 -
+2025-06-01 16:25:16,316 - INFO - 127.0.0.1 - - [01/Jun/2025 16:25:16] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-01 16:25:16,318 - INFO - 127.0.0.1 - - [01/Jun/2025 16:25:16] "[36mGET /static/images/crm_name-removebg-preview.png HTTP/1.1[0m" 304 -
+2025-06-01 16:25:40,358 - INFO - 127.0.0.1 - - [01/Jun/2025 16:25:40] "[32mGET / HTTP/1.1[0m" 302 -
+2025-06-01 16:25:40,371 - INFO - 127.0.0.1 - - [01/Jun/2025 16:25:40] "GET /login HTTP/1.1" 200 -
+2025-06-01 16:25:40,468 - INFO - 127.0.0.1 - - [01/Jun/2025 16:25:40] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-01 16:25:40,473 - INFO - 127.0.0.1 - - [01/Jun/2025 16:25:40] "[36mGET /static/images/Benefits%20of%20Business%20Intelligence%20Software%20Tools.jpeg HTTP/1.1[0m" 304 -
+2025-06-01 16:26:07,236 - INFO - Login successful for marium@gmail.com (role: Manager)
+2025-06-01 16:26:07,238 - INFO - 127.0.0.1 - - [01/Jun/2025 16:26:07] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-06-01 16:26:07,401 - INFO - 127.0.0.1 - - [01/Jun/2025 16:26:07] "GET / HTTP/1.1" 200 -
+2025-06-01 16:26:07,467 - INFO - 127.0.0.1 - - [01/Jun/2025 16:26:07] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-01 16:26:07,678 - INFO - 127.0.0.1 - - [01/Jun/2025 16:26:07] "GET /tickets/summary.json HTTP/1.1" 200 -
+2025-06-01 16:26:07,679 - INFO - 127.0.0.1 - - [01/Jun/2025 16:26:07] "GET /tasks/summary.json HTTP/1.1" 200 -
+2025-06-01 16:26:07,682 - INFO - 127.0.0.1 - - [01/Jun/2025 16:26:07] "GET /opportunities/summary.json HTTP/1.1" 200 -
+2025-06-01 16:26:07,688 - INFO - 127.0.0.1 - - [01/Jun/2025 16:26:07] "GET /leads/summary.json HTTP/1.1" 200 -
+2025-06-01 16:27:33,202 - INFO - 127.0.0.1 - - [01/Jun/2025 16:27:33] "GET /opportunities HTTP/1.1" 200 -
+2025-06-01 16:27:33,242 - INFO - 127.0.0.1 - - [01/Jun/2025 16:27:33] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-01 16:27:34,064 - INFO - 127.0.0.1 - - [01/Jun/2025 16:27:34] "GET /quotes HTTP/1.1" 200 -
+2025-06-01 16:27:34,115 - INFO - 127.0.0.1 - - [01/Jun/2025 16:27:34] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-01 16:27:36,996 - INFO - 127.0.0.1 - - [01/Jun/2025 16:27:36] "GET /opportunities HTTP/1.1" 200 -
+2025-06-01 16:27:37,031 - INFO - 127.0.0.1 - - [01/Jun/2025 16:27:37] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-01 16:27:41,609 - INFO - 127.0.0.1 - - [01/Jun/2025 16:27:41] "GET / HTTP/1.1" 200 -
+2025-06-01 16:27:41,665 - INFO - 127.0.0.1 - - [01/Jun/2025 16:27:41] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-01 16:27:41,830 - INFO - 127.0.0.1 - - [01/Jun/2025 16:27:41] "GET /opportunities/summary.json HTTP/1.1" 200 -
+2025-06-01 16:27:41,840 - INFO - 127.0.0.1 - - [01/Jun/2025 16:27:41] "GET /leads/summary.json HTTP/1.1" 200 -
+2025-06-01 16:27:41,847 - INFO - 127.0.0.1 - - [01/Jun/2025 16:27:41] "GET /tickets/summary.json HTTP/1.1" 200 -
+2025-06-01 16:27:41,849 - INFO - 127.0.0.1 - - [01/Jun/2025 16:27:41] "GET /tasks/summary.json HTTP/1.1" 200 -
+2025-06-01 16:27:49,426 - INFO - 127.0.0.1 - - [01/Jun/2025 16:27:49] "GET /accounts HTTP/1.1" 200 -
+2025-06-01 16:27:49,457 - INFO - 127.0.0.1 - - [01/Jun/2025 16:27:49] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-01 16:27:51,535 - INFO - 127.0.0.1 - - [01/Jun/2025 16:27:51] "GET /contacts HTTP/1.1" 200 -
+2025-06-01 16:27:51,583 - INFO - 127.0.0.1 - - [01/Jun/2025 16:27:51] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-01 16:27:54,376 - INFO - 127.0.0.1 - - [01/Jun/2025 16:27:54] "GET /products HTTP/1.1" 200 -
+2025-06-01 16:27:54,406 - INFO - 127.0.0.1 - - [01/Jun/2025 16:27:54] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-01 16:28:02,689 - INFO - 127.0.0.1 - - [01/Jun/2025 16:28:02] "GET /quotes HTTP/1.1" 200 -
+2025-06-01 16:28:02,722 - INFO - 127.0.0.1 - - [01/Jun/2025 16:28:02] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-01 16:28:08,903 - INFO - 127.0.0.1 - - [01/Jun/2025 16:28:08] "GET /quotes/edit/1 HTTP/1.1" 200 -
+2025-06-01 16:28:08,946 - INFO - 127.0.0.1 - - [01/Jun/2025 16:28:08] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-01 16:28:17,977 - INFO - 127.0.0.1 - - [01/Jun/2025 16:28:17] "GET /products HTTP/1.1" 200 -
+2025-06-01 16:28:18,015 - INFO - 127.0.0.1 - - [01/Jun/2025 16:28:18] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-01 16:28:21,598 - INFO - 127.0.0.1 - - [01/Jun/2025 16:28:21] "GET /quotes HTTP/1.1" 200 -
+2025-06-01 16:28:21,634 - INFO - 127.0.0.1 - - [01/Jun/2025 16:28:21] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-01 16:28:29,185 - INFO - 127.0.0.1 - - [01/Jun/2025 16:28:29] "GET /quotes/view/1 HTTP/1.1" 200 -
+2025-06-01 16:28:29,236 - INFO - 127.0.0.1 - - [01/Jun/2025 16:28:29] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-01 16:28:40,184 - INFO - 127.0.0.1 - - [01/Jun/2025 16:28:40] "GET /quotes HTTP/1.1" 200 -
+2025-06-01 16:28:40,233 - INFO - 127.0.0.1 - - [01/Jun/2025 16:28:40] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-01 16:28:41,789 - INFO - 127.0.0.1 - - [01/Jun/2025 16:28:41] "GET /quotes/add HTTP/1.1" 200 -
+2025-06-01 16:28:41,840 - INFO - 127.0.0.1 - - [01/Jun/2025 16:28:41] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-01 16:28:56,219 - INFO - 127.0.0.1 - - [01/Jun/2025 16:28:56] "GET /products HTTP/1.1" 200 -
+2025-06-01 16:28:56,264 - INFO - 127.0.0.1 - - [01/Jun/2025 16:28:56] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-01 16:29:00,816 - INFO - 127.0.0.1 - - [01/Jun/2025 16:29:00] "GET /quotes HTTP/1.1" 200 -
+2025-06-01 16:29:00,844 - INFO - 127.0.0.1 - - [01/Jun/2025 16:29:00] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-01 16:29:16,382 - INFO - 127.0.0.1 - - [01/Jun/2025 16:29:16] "GET /users HTTP/1.1" 200 -
+2025-06-01 16:29:16,450 - INFO - 127.0.0.1 - - [01/Jun/2025 16:29:16] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-01 16:29:18,779 - INFO - 127.0.0.1 - - [01/Jun/2025 16:29:18] "GET / HTTP/1.1" 200 -
+2025-06-01 16:29:18,855 - INFO - 127.0.0.1 - - [01/Jun/2025 16:29:18] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-01 16:29:19,049 - INFO - 127.0.0.1 - - [01/Jun/2025 16:29:19] "GET /opportunities/summary.json HTTP/1.1" 200 -
+2025-06-01 16:29:19,059 - INFO - 127.0.0.1 - - [01/Jun/2025 16:29:19] "GET /tickets/summary.json HTTP/1.1" 200 -
+2025-06-01 16:29:19,065 - INFO - 127.0.0.1 - - [01/Jun/2025 16:29:19] "GET /tasks/summary.json HTTP/1.1" 200 -
+2025-06-01 16:29:19,070 - INFO - 127.0.0.1 - - [01/Jun/2025 16:29:19] "GET /leads/summary.json HTTP/1.1" 200 -
+2025-06-01 16:29:32,760 - INFO - 127.0.0.1 - - [01/Jun/2025 16:29:32] "GET /quotes HTTP/1.1" 200 -
+2025-06-01 16:29:32,799 - INFO - 127.0.0.1 - - [01/Jun/2025 16:29:32] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-01 16:29:44,072 - INFO - 127.0.0.1 - - [01/Jun/2025 16:29:44] "GET /quotes/add HTTP/1.1" 200 -
+2025-06-01 16:29:44,155 - INFO - 127.0.0.1 - - [01/Jun/2025 16:29:44] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-01 16:30:05,825 - INFO - 127.0.0.1 - - [01/Jun/2025 16:30:05] "[32mPOST /quotes/add HTTP/1.1[0m" 302 -
+2025-06-01 16:30:06,028 - INFO - 127.0.0.1 - - [01/Jun/2025 16:30:06] "GET /quotes HTTP/1.1" 200 -
+2025-06-01 16:30:06,085 - INFO - 127.0.0.1 - - [01/Jun/2025 16:30:06] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-01 16:30:13,592 - INFO - 127.0.0.1 - - [01/Jun/2025 16:30:13] "GET / HTTP/1.1" 200 -
+2025-06-01 16:30:13,637 - INFO - 127.0.0.1 - - [01/Jun/2025 16:30:13] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-01 16:30:13,818 - INFO - 127.0.0.1 - - [01/Jun/2025 16:30:13] "GET /opportunities/summary.json HTTP/1.1" 200 -
+2025-06-01 16:30:13,828 - INFO - 127.0.0.1 - - [01/Jun/2025 16:30:13] "GET /leads/summary.json HTTP/1.1" 200 -
+2025-06-01 16:30:13,828 - INFO - 127.0.0.1 - - [01/Jun/2025 16:30:13] "GET /tickets/summary.json HTTP/1.1" 200 -
+2025-06-01 16:30:13,834 - INFO - 127.0.0.1 - - [01/Jun/2025 16:30:13] "GET /tasks/summary.json HTTP/1.1" 200 -
+2025-06-01 16:30:16,270 - INFO - 127.0.0.1 - - [01/Jun/2025 16:30:16] "GET / HTTP/1.1" 200 -
+2025-06-01 16:30:16,305 - INFO - 127.0.0.1 - - [01/Jun/2025 16:30:16] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-01 16:30:16,471 - INFO - 127.0.0.1 - - [01/Jun/2025 16:30:16] "GET /opportunities/summary.json HTTP/1.1" 200 -
+2025-06-01 16:30:16,479 - INFO - 127.0.0.1 - - [01/Jun/2025 16:30:16] "GET /leads/summary.json HTTP/1.1" 200 -
+2025-06-01 16:30:16,489 - INFO - 127.0.0.1 - - [01/Jun/2025 16:30:16] "GET /tasks/summary.json HTTP/1.1" 200 -
+2025-06-01 16:30:16,534 - INFO - 127.0.0.1 - - [01/Jun/2025 16:30:16] "GET /tickets/summary.json HTTP/1.1" 200 -
+2025-06-01 16:30:31,230 - INFO - 127.0.0.1 - - [01/Jun/2025 16:30:31] "GET /products HTTP/1.1" 200 -
+2025-06-01 16:30:31,276 - INFO - 127.0.0.1 - - [01/Jun/2025 16:30:31] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-01 16:30:43,860 - INFO - 127.0.0.1 - - [01/Jun/2025 16:30:43] "GET /opportunities HTTP/1.1" 200 -
+2025-06-01 16:30:43,931 - INFO - 127.0.0.1 - - [01/Jun/2025 16:30:43] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-01 16:30:46,069 - INFO - 127.0.0.1 - - [01/Jun/2025 16:30:46] "GET /quotes HTTP/1.1" 200 -
+2025-06-01 16:30:46,133 - INFO - 127.0.0.1 - - [01/Jun/2025 16:30:46] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-01 16:32:28,488 - INFO - 127.0.0.1 - - [01/Jun/2025 16:32:28] "GET / HTTP/1.1" 200 -
+2025-06-01 16:32:28,540 - INFO - 127.0.0.1 - - [01/Jun/2025 16:32:28] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-01 16:32:28,726 - INFO - 127.0.0.1 - - [01/Jun/2025 16:32:28] "GET /tickets/summary.json HTTP/1.1" 200 -
+2025-06-01 16:32:28,727 - INFO - 127.0.0.1 - - [01/Jun/2025 16:32:28] "GET /opportunities/summary.json HTTP/1.1" 200 -
+2025-06-01 16:32:28,732 - INFO - 127.0.0.1 - - [01/Jun/2025 16:32:28] "GET /leads/summary.json HTTP/1.1" 200 -
+2025-06-01 16:32:28,804 - INFO - 127.0.0.1 - - [01/Jun/2025 16:32:28] "GET /tasks/summary.json HTTP/1.1" 200 -
+2025-06-01 16:32:34,821 - INFO - 127.0.0.1 - - [01/Jun/2025 16:32:34] "GET /quotes HTTP/1.1" 200 -
+2025-06-01 16:32:34,871 - INFO - 127.0.0.1 - - [01/Jun/2025 16:32:34] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-01 16:32:37,965 - INFO - 127.0.0.1 - - [01/Jun/2025 16:32:37] "GET /tasks HTTP/1.1" 200 -
+2025-06-01 16:32:38,033 - INFO - 127.0.0.1 - - [01/Jun/2025 16:32:38] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-01 16:32:39,426 - INFO - 127.0.0.1 - - [01/Jun/2025 16:32:39] "GET /quotes HTTP/1.1" 200 -
+2025-06-01 16:32:39,492 - INFO - 127.0.0.1 - - [01/Jun/2025 16:32:39] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-04 13:31:18,586 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-06-04 13:31:18,587 - INFO - [33mPress CTRL+C to quit[0m
+2025-06-04 13:32:43,466 - INFO - 127.0.0.1 - - [04/Jun/2025 13:32:43] "GET /welcome HTTP/1.1" 200 -
+2025-06-04 13:32:43,810 - INFO - 127.0.0.1 - - [04/Jun/2025 13:32:43] "[36mGET /static/images/crm_name-removebg-preview.png HTTP/1.1[0m" 304 -
+2025-06-04 13:32:43,827 - INFO - 127.0.0.1 - - [04/Jun/2025 13:32:43] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-04 13:32:43,920 - INFO - 127.0.0.1 - - [04/Jun/2025 13:32:43] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-06-04 13:33:04,747 - INFO - 127.0.0.1 - - [04/Jun/2025 13:33:04] "[32mGET / HTTP/1.1[0m" 302 -
+2025-06-04 13:33:04,816 - INFO - 127.0.0.1 - - [04/Jun/2025 13:33:04] "GET /login HTTP/1.1" 200 -
+2025-06-04 13:33:04,992 - INFO - 127.0.0.1 - - [04/Jun/2025 13:33:04] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-04 13:33:05,067 - INFO - 127.0.0.1 - - [04/Jun/2025 13:33:05] "GET /static/images/Benefits%20of%20Business%20Intelligence%20Software%20Tools.jpeg HTTP/1.1" 200 -
+2025-06-04 13:33:33,504 - INFO - 127.0.0.1 - - [04/Jun/2025 13:33:33] "[32mGET / HTTP/1.1[0m" 302 -
+2025-06-04 13:33:33,521 - INFO - 127.0.0.1 - - [04/Jun/2025 13:33:33] "GET /login HTTP/1.1" 200 -
+2025-06-04 13:33:33,623 - INFO - 127.0.0.1 - - [04/Jun/2025 13:33:33] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-04 13:33:33,625 - INFO - 127.0.0.1 - - [04/Jun/2025 13:33:33] "[36mGET /static/images/Benefits%20of%20Business%20Intelligence%20Software%20Tools.jpeg HTTP/1.1[0m" 304 -
+2025-06-04 13:33:51,723 - INFO - Login successful for marium@gmail.com (role: Manager)
+2025-06-04 13:33:51,725 - INFO - 127.0.0.1 - - [04/Jun/2025 13:33:51] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-06-04 13:33:52,113 - INFO - 127.0.0.1 - - [04/Jun/2025 13:33:52] "GET / HTTP/1.1" 200 -
+2025-06-04 13:33:52,203 - INFO - 127.0.0.1 - - [04/Jun/2025 13:33:52] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-04 13:33:52,416 - INFO - 127.0.0.1 - - [04/Jun/2025 13:33:52] "GET /opportunities/summary.json HTTP/1.1" 200 -
+2025-06-04 13:33:52,431 - INFO - 127.0.0.1 - - [04/Jun/2025 13:33:52] "GET /tickets/summary.json HTTP/1.1" 200 -
+2025-06-04 13:33:52,432 - INFO - 127.0.0.1 - - [04/Jun/2025 13:33:52] "GET /leads/summary.json HTTP/1.1" 200 -
+2025-06-04 13:33:52,437 - INFO - 127.0.0.1 - - [04/Jun/2025 13:33:52] "GET /tasks/summary.json HTTP/1.1" 200 -
+2025-06-04 13:34:02,871 - INFO - 127.0.0.1 - - [04/Jun/2025 13:34:02] "GET / HTTP/1.1" 200 -
+2025-06-04 13:34:02,955 - INFO - 127.0.0.1 - - [04/Jun/2025 13:34:02] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-04 13:34:03,117 - INFO - 127.0.0.1 - - [04/Jun/2025 13:34:03] "GET /opportunities/summary.json HTTP/1.1" 200 -
+2025-06-04 13:34:03,125 - INFO - 127.0.0.1 - - [04/Jun/2025 13:34:03] "GET /leads/summary.json HTTP/1.1" 200 -
+2025-06-04 13:34:03,128 - INFO - 127.0.0.1 - - [04/Jun/2025 13:34:03] "GET /tasks/summary.json HTTP/1.1" 200 -
+2025-06-04 13:34:03,168 - INFO - 127.0.0.1 - - [04/Jun/2025 13:34:03] "GET /tickets/summary.json HTTP/1.1" 200 -
+2025-06-04 13:39:33,365 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-06-04 13:39:33,366 - INFO - [33mPress CTRL+C to quit[0m
+2025-06-04 13:39:39,914 - INFO - 127.0.0.1 - - [04/Jun/2025 13:39:39] "GET / HTTP/1.1" 200 -
+2025-06-04 13:39:40,106 - INFO - 127.0.0.1 - - [04/Jun/2025 13:39:40] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-04 13:39:40,146 - INFO - 127.0.0.1 - - [04/Jun/2025 13:39:40] "GET /opportunities/summary.json HTTP/1.1" 200 -
+2025-06-04 13:39:40,151 - INFO - 127.0.0.1 - - [04/Jun/2025 13:39:40] "GET /tickets/summary.json HTTP/1.1" 200 -
+2025-06-04 13:39:40,153 - INFO - 127.0.0.1 - - [04/Jun/2025 13:39:40] "GET /leads/summary.json HTTP/1.1" 200 -
+2025-06-04 13:39:40,156 - INFO - 127.0.0.1 - - [04/Jun/2025 13:39:40] "GET /tasks/summary.json HTTP/1.1" 200 -
+2025-06-04 13:39:50,315 - INFO - 127.0.0.1 - - [04/Jun/2025 13:39:50] "GET / HTTP/1.1" 200 -
+2025-06-04 13:39:50,417 - INFO - 127.0.0.1 - - [04/Jun/2025 13:39:50] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-04 13:39:50,563 - INFO - 127.0.0.1 - - [04/Jun/2025 13:39:50] "GET /opportunities/summary.json HTTP/1.1" 200 -
+2025-06-04 13:39:50,602 - INFO - 127.0.0.1 - - [04/Jun/2025 13:39:50] "GET /tasks/summary.json HTTP/1.1" 200 -
+2025-06-04 13:39:50,682 - INFO - 127.0.0.1 - - [04/Jun/2025 13:39:50] "GET /tickets/summary.json HTTP/1.1" 200 -
+2025-06-04 13:39:50,691 - INFO - 127.0.0.1 - - [04/Jun/2025 13:39:50] "GET /leads/summary.json HTTP/1.1" 200 -
+2025-06-04 13:41:16,043 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-06-04 13:41:16,044 - INFO - [33mPress CTRL+C to quit[0m
+2025-06-04 13:41:21,148 - INFO - 127.0.0.1 - - [04/Jun/2025 13:41:21] "GET / HTTP/1.1" 200 -
+2025-06-04 13:41:21,332 - INFO - 127.0.0.1 - - [04/Jun/2025 13:41:21] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-04 13:41:21,364 - INFO - 127.0.0.1 - - [04/Jun/2025 13:41:21] "GET /opportunities/summary.json HTTP/1.1" 200 -
+2025-06-04 13:41:21,380 - INFO - 127.0.0.1 - - [04/Jun/2025 13:41:21] "GET /leads/summary.json HTTP/1.1" 200 -
+2025-06-04 13:41:21,384 - INFO - 127.0.0.1 - - [04/Jun/2025 13:41:21] "GET /tasks/summary.json HTTP/1.1" 200 -
+2025-06-04 13:41:21,388 - INFO - 127.0.0.1 - - [04/Jun/2025 13:41:21] "GET /tickets/summary.json HTTP/1.1" 200 -
+2025-06-04 13:41:50,649 - INFO - 127.0.0.1 - - [04/Jun/2025 13:41:50] "GET /welcome HTTP/1.1" 200 -
+2025-06-04 13:41:50,806 - INFO - 127.0.0.1 - - [04/Jun/2025 13:41:50] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-04 13:41:50,809 - INFO - 127.0.0.1 - - [04/Jun/2025 13:41:50] "[36mGET /static/images/crm_name-removebg-preview.png HTTP/1.1[0m" 304 -
+2025-06-04 13:41:55,354 - INFO - 127.0.0.1 - - [04/Jun/2025 13:41:55] "GET / HTTP/1.1" 200 -
+2025-06-04 13:41:55,446 - INFO - 127.0.0.1 - - [04/Jun/2025 13:41:55] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-04 13:41:55,664 - INFO - 127.0.0.1 - - [04/Jun/2025 13:41:55] "GET /opportunities/summary.json HTTP/1.1" 200 -
+2025-06-04 13:41:55,669 - INFO - 127.0.0.1 - - [04/Jun/2025 13:41:55] "GET /leads/summary.json HTTP/1.1" 200 -
+2025-06-04 13:41:55,672 - INFO - 127.0.0.1 - - [04/Jun/2025 13:41:55] "GET /tickets/summary.json HTTP/1.1" 200 -
+2025-06-04 13:41:55,679 - INFO - 127.0.0.1 - - [04/Jun/2025 13:41:55] "GET /tasks/summary.json HTTP/1.1" 200 -
+2025-06-04 13:42:32,432 - INFO - 127.0.0.1 - - [04/Jun/2025 13:42:32] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-06-04 13:42:32,449 - INFO - 127.0.0.1 - - [04/Jun/2025 13:42:32] "GET /login HTTP/1.1" 200 -
+2025-06-04 13:42:32,512 - INFO - 127.0.0.1 - - [04/Jun/2025 13:42:32] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-04 13:42:32,514 - INFO - 127.0.0.1 - - [04/Jun/2025 13:42:32] "[36mGET /static/images/Benefits%20of%20Business%20Intelligence%20Software%20Tools.jpeg HTTP/1.1[0m" 304 -
+2025-06-04 13:42:44,664 - INFO - 127.0.0.1 - - [04/Jun/2025 13:42:44] "[32mGET / HTTP/1.1[0m" 302 -
+2025-06-04 13:42:44,678 - INFO - 127.0.0.1 - - [04/Jun/2025 13:42:44] "GET /login HTTP/1.1" 200 -
+2025-06-04 13:42:44,749 - INFO - 127.0.0.1 - - [04/Jun/2025 13:42:44] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-04 13:42:44,794 - INFO - 127.0.0.1 - - [04/Jun/2025 13:42:44] "[36mGET /static/images/Benefits%20of%20Business%20Intelligence%20Software%20Tools.jpeg HTTP/1.1[0m" 304 -
+2025-06-04 13:42:47,310 - INFO - 127.0.0.1 - - [04/Jun/2025 13:42:47] "[32mGET / HTTP/1.1[0m" 302 -
+2025-06-04 13:42:47,321 - INFO - 127.0.0.1 - - [04/Jun/2025 13:42:47] "GET /login HTTP/1.1" 200 -
+2025-06-04 13:42:47,372 - INFO - 127.0.0.1 - - [04/Jun/2025 13:42:47] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-04 13:42:47,392 - INFO - 127.0.0.1 - - [04/Jun/2025 13:42:47] "[36mGET /static/images/Benefits%20of%20Business%20Intelligence%20Software%20Tools.jpeg HTTP/1.1[0m" 304 -
+2025-06-04 13:42:49,525 - INFO - 127.0.0.1 - - [04/Jun/2025 13:42:49] "GET /welcome HTTP/1.1" 200 -
+2025-06-04 13:42:49,613 - INFO - 127.0.0.1 - - [04/Jun/2025 13:42:49] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-04 13:42:49,622 - INFO - 127.0.0.1 - - [04/Jun/2025 13:42:49] "[36mGET /static/images/crm_name-removebg-preview.png HTTP/1.1[0m" 304 -
+2025-06-04 13:44:23,331 - INFO - 127.0.0.1 - - [04/Jun/2025 13:44:23] "GET /welcome HTTP/1.1" 200 -
+2025-06-04 13:44:23,440 - INFO - 127.0.0.1 - - [04/Jun/2025 13:44:23] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-04 13:44:23,442 - INFO - 127.0.0.1 - - [04/Jun/2025 13:44:23] "[36mGET /static/images/crm_name-removebg-preview.png HTTP/1.1[0m" 304 -
+2025-06-04 13:44:33,531 - INFO - 127.0.0.1 - - [04/Jun/2025 13:44:33] "[32mGET / HTTP/1.1[0m" 302 -
+2025-06-04 13:44:33,560 - INFO - 127.0.0.1 - - [04/Jun/2025 13:44:33] "GET /login HTTP/1.1" 200 -
+2025-06-04 13:44:33,669 - INFO - 127.0.0.1 - - [04/Jun/2025 13:44:33] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-04 13:44:33,673 - INFO - 127.0.0.1 - - [04/Jun/2025 13:44:33] "[36mGET /static/images/Benefits%20of%20Business%20Intelligence%20Software%20Tools.jpeg HTTP/1.1[0m" 304 -
+2025-06-04 13:44:43,376 - INFO - Login successful for marium@gmail.com (role: Manager)
+2025-06-04 13:44:43,377 - INFO - 127.0.0.1 - - [04/Jun/2025 13:44:43] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-06-04 13:44:43,546 - INFO - 127.0.0.1 - - [04/Jun/2025 13:44:43] "GET / HTTP/1.1" 200 -
+2025-06-04 13:44:43,613 - INFO - 127.0.0.1 - - [04/Jun/2025 13:44:43] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-04 13:44:43,819 - INFO - 127.0.0.1 - - [04/Jun/2025 13:44:43] "GET /leads/summary.json HTTP/1.1" 200 -
+2025-06-04 13:44:43,853 - INFO - 127.0.0.1 - - [04/Jun/2025 13:44:43] "GET /tasks/summary.json HTTP/1.1" 200 -
+2025-06-04 13:44:43,883 - INFO - 127.0.0.1 - - [04/Jun/2025 13:44:43] "GET /opportunities/summary.json HTTP/1.1" 200 -
+2025-06-04 13:44:43,902 - INFO - 127.0.0.1 - - [04/Jun/2025 13:44:43] "GET /tickets/summary.json HTTP/1.1" 200 -
+2025-06-04 13:44:53,208 - INFO - 127.0.0.1 - - [04/Jun/2025 13:44:53] "GET /users HTTP/1.1" 200 -
+2025-06-04 13:44:53,261 - INFO - 127.0.0.1 - - [04/Jun/2025 13:44:53] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-04 13:44:55,605 - INFO - 127.0.0.1 - - [04/Jun/2025 13:44:55] "GET /add_user HTTP/1.1" 200 -
+2025-06-04 13:44:55,695 - INFO - 127.0.0.1 - - [04/Jun/2025 13:44:55] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-04 13:45:12,755 - INFO - 127.0.0.1 - - [04/Jun/2025 13:45:12] "[32mPOST /add_user HTTP/1.1[0m" 302 -
+2025-06-04 13:45:12,898 - INFO - 127.0.0.1 - - [04/Jun/2025 13:45:12] "GET /users HTTP/1.1" 200 -
+2025-06-04 13:45:12,974 - INFO - 127.0.0.1 - - [04/Jun/2025 13:45:12] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-04 13:45:23,247 - INFO - 127.0.0.1 - - [04/Jun/2025 13:45:23] "[32mPOST /users/delete/14 HTTP/1.1[0m" 302 -
+2025-06-04 13:45:23,365 - INFO - 127.0.0.1 - - [04/Jun/2025 13:45:23] "GET /users HTTP/1.1" 200 -
+2025-06-04 13:45:23,413 - INFO - 127.0.0.1 - - [04/Jun/2025 13:45:23] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-04 13:45:29,446 - INFO - 127.0.0.1 - - [04/Jun/2025 13:45:29] "GET /accounts HTTP/1.1" 200 -
+2025-06-04 13:45:29,494 - INFO - 127.0.0.1 - - [04/Jun/2025 13:45:29] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-04 13:45:31,982 - INFO - 127.0.0.1 - - [04/Jun/2025 13:45:31] "GET /accounts/add HTTP/1.1" 200 -
+2025-06-04 13:45:32,094 - INFO - 127.0.0.1 - - [04/Jun/2025 13:45:32] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-04 13:45:38,528 - INFO - 127.0.0.1 - - [04/Jun/2025 13:45:38] "GET /contacts HTTP/1.1" 200 -
+2025-06-04 13:45:38,579 - INFO - 127.0.0.1 - - [04/Jun/2025 13:45:38] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-04 13:45:39,864 - INFO - 127.0.0.1 - - [04/Jun/2025 13:45:39] "GET /products HTTP/1.1" 200 -
+2025-06-04 13:45:39,931 - INFO - 127.0.0.1 - - [04/Jun/2025 13:45:39] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-04 13:45:47,189 - INFO - 127.0.0.1 - - [04/Jun/2025 13:45:47] "GET /products/edit/1 HTTP/1.1" 200 -
+2025-06-04 13:45:47,257 - INFO - 127.0.0.1 - - [04/Jun/2025 13:45:47] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-04 13:45:53,765 - INFO - 127.0.0.1 - - [04/Jun/2025 13:45:53] "[32mPOST /products/edit/1 HTTP/1.1[0m" 302 -
+2025-06-04 13:45:53,945 - INFO - 127.0.0.1 - - [04/Jun/2025 13:45:53] "GET /products HTTP/1.1" 200 -
+2025-06-04 13:45:54,016 - INFO - 127.0.0.1 - - [04/Jun/2025 13:45:54] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-04 13:46:03,379 - INFO - 127.0.0.1 - - [04/Jun/2025 13:46:03] "GET /products/edit/2 HTTP/1.1" 200 -
+2025-06-04 13:46:03,451 - INFO - 127.0.0.1 - - [04/Jun/2025 13:46:03] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-04 13:46:13,500 - INFO - 127.0.0.1 - - [04/Jun/2025 13:46:13] "[32mPOST /products/edit/2 HTTP/1.1[0m" 302 -
+2025-06-04 13:46:13,635 - INFO - 127.0.0.1 - - [04/Jun/2025 13:46:13] "GET /products HTTP/1.1" 200 -
+2025-06-04 13:46:13,704 - INFO - 127.0.0.1 - - [04/Jun/2025 13:46:13] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-04 13:46:21,860 - INFO - 127.0.0.1 - - [04/Jun/2025 13:46:21] "GET /leads HTTP/1.1" 200 -
+2025-06-04 13:46:21,953 - INFO - 127.0.0.1 - - [04/Jun/2025 13:46:21] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-04 13:46:24,136 - INFO - 127.0.0.1 - - [04/Jun/2025 13:46:24] "GET /opportunities HTTP/1.1" 200 -
+2025-06-04 13:46:24,199 - INFO - 127.0.0.1 - - [04/Jun/2025 13:46:24] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-04 13:46:25,680 - INFO - 127.0.0.1 - - [04/Jun/2025 13:46:25] "GET /quotes HTTP/1.1" 200 -
+2025-06-04 13:46:25,720 - INFO - 127.0.0.1 - - [04/Jun/2025 13:46:25] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-04 13:51:33,511 - INFO - 127.0.0.1 - - [04/Jun/2025 13:51:33] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-06-04 13:51:33,530 - INFO - 127.0.0.1 - - [04/Jun/2025 13:51:33] "GET /login HTTP/1.1" 200 -
+2025-06-04 13:51:33,648 - INFO - 127.0.0.1 - - [04/Jun/2025 13:51:33] "[36mGET /static/images/Benefits%20of%20Business%20Intelligence%20Software%20Tools.jpeg HTTP/1.1[0m" 304 -
+2025-06-04 13:51:33,653 - INFO - 127.0.0.1 - - [04/Jun/2025 13:51:33] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-04 13:51:50,846 - INFO - 127.0.0.1 - - [04/Jun/2025 13:51:50] "GET /login HTTP/1.1" 200 -
+2025-06-04 13:51:50,922 - INFO - 127.0.0.1 - - [04/Jun/2025 13:51:50] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-04 13:51:50,970 - INFO - 127.0.0.1 - - [04/Jun/2025 13:51:50] "[36mGET /static/images/Benefits%20of%20Business%20Intelligence%20Software%20Tools.jpeg HTTP/1.1[0m" 304 -
+2025-06-04 13:51:58,369 - INFO - 127.0.0.1 - - [04/Jun/2025 13:51:58] "[32mGET / HTTP/1.1[0m" 302 -
+2025-06-04 13:51:58,381 - INFO - 127.0.0.1 - - [04/Jun/2025 13:51:58] "GET /login HTTP/1.1" 200 -
+2025-06-04 13:51:58,453 - INFO - 127.0.0.1 - - [04/Jun/2025 13:51:58] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-04 13:51:58,473 - INFO - 127.0.0.1 - - [04/Jun/2025 13:51:58] "[36mGET /static/images/Benefits%20of%20Business%20Intelligence%20Software%20Tools.jpeg HTTP/1.1[0m" 304 -
+2025-06-04 13:52:00,498 - INFO - 127.0.0.1 - - [04/Jun/2025 13:52:00] "GET /welcome HTTP/1.1" 200 -
+2025-06-04 13:52:00,572 - INFO - 127.0.0.1 - - [04/Jun/2025 13:52:00] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-04 13:52:00,597 - INFO - 127.0.0.1 - - [04/Jun/2025 13:52:00] "[36mGET /static/images/crm_name-removebg-preview.png HTTP/1.1[0m" 304 -
+2025-06-04 13:53:56,544 - INFO - 127.0.0.1 - - [04/Jun/2025 13:53:56] "GET /welcome HTTP/1.1" 200 -
+2025-06-04 13:53:56,619 - INFO - 127.0.0.1 - - [04/Jun/2025 13:53:56] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-04 13:53:56,625 - INFO - 127.0.0.1 - - [04/Jun/2025 13:53:56] "[36mGET /static/images/crm_name-removebg-preview.png HTTP/1.1[0m" 304 -
+2025-06-04 13:54:43,306 - INFO - 127.0.0.1 - - [04/Jun/2025 13:54:43] "GET /welcome HTTP/1.1" 200 -
+2025-06-04 13:54:43,396 - INFO - 127.0.0.1 - - [04/Jun/2025 13:54:43] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-04 13:54:43,403 - INFO - 127.0.0.1 - - [04/Jun/2025 13:54:43] "[36mGET /static/images/crm_name-removebg-preview.png HTTP/1.1[0m" 304 -
+2025-06-04 13:54:49,221 - INFO - 127.0.0.1 - - [04/Jun/2025 13:54:49] "GET /welcome HTTP/1.1" 200 -
+2025-06-04 13:54:49,298 - INFO - 127.0.0.1 - - [04/Jun/2025 13:54:49] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-04 13:54:49,300 - INFO - 127.0.0.1 - - [04/Jun/2025 13:54:49] "[36mGET /static/images/crm_name-removebg-preview.png HTTP/1.1[0m" 304 -
+2025-06-04 13:54:54,238 - INFO - 127.0.0.1 - - [04/Jun/2025 13:54:54] "[32mGET / HTTP/1.1[0m" 302 -
+2025-06-04 13:54:54,256 - INFO - 127.0.0.1 - - [04/Jun/2025 13:54:54] "GET /login HTTP/1.1" 200 -
+2025-06-04 13:54:54,377 - INFO - 127.0.0.1 - - [04/Jun/2025 13:54:54] "[36mGET /static/images/Benefits%20of%20Business%20Intelligence%20Software%20Tools.jpeg HTTP/1.1[0m" 304 -
+2025-06-04 13:54:54,378 - INFO - 127.0.0.1 - - [04/Jun/2025 13:54:54] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-04 13:55:05,853 - INFO - 127.0.0.1 - - [04/Jun/2025 13:55:05] "GET /welcome HTTP/1.1" 200 -
+2025-06-04 13:55:05,936 - INFO - 127.0.0.1 - - [04/Jun/2025 13:55:05] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-04 13:55:05,940 - INFO - 127.0.0.1 - - [04/Jun/2025 13:55:05] "[36mGET /static/images/crm_name-removebg-preview.png HTTP/1.1[0m" 304 -
+2025-06-04 13:55:14,797 - INFO - 127.0.0.1 - - [04/Jun/2025 13:55:14] "[32mGET / HTTP/1.1[0m" 302 -
+2025-06-04 13:55:14,807 - INFO - 127.0.0.1 - - [04/Jun/2025 13:55:14] "GET /login HTTP/1.1" 200 -
+2025-06-04 13:55:14,870 - INFO - 127.0.0.1 - - [04/Jun/2025 13:55:14] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-04 13:55:14,873 - INFO - 127.0.0.1 - - [04/Jun/2025 13:55:14] "[36mGET /static/images/Benefits%20of%20Business%20Intelligence%20Software%20Tools.jpeg HTTP/1.1[0m" 304 -
+2025-06-04 13:55:33,722 - INFO - 127.0.0.1 - - [04/Jun/2025 13:55:33] "[32mGET / HTTP/1.1[0m" 302 -
+2025-06-04 13:55:33,735 - INFO - 127.0.0.1 - - [04/Jun/2025 13:55:33] "GET /login HTTP/1.1" 200 -
+2025-06-04 13:55:33,819 - INFO - 127.0.0.1 - - [04/Jun/2025 13:55:33] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-04 13:55:33,827 - INFO - 127.0.0.1 - - [04/Jun/2025 13:55:33] "[36mGET /static/images/Benefits%20of%20Business%20Intelligence%20Software%20Tools.jpeg HTTP/1.1[0m" 304 -
+2025-06-04 13:55:43,550 - INFO - 127.0.0.1 - - [04/Jun/2025 13:55:43] "[32mGET / HTTP/1.1[0m" 302 -
+2025-06-04 13:55:43,557 - INFO - 127.0.0.1 - - [04/Jun/2025 13:55:43] "GET /login HTTP/1.1" 200 -
+2025-06-04 13:55:43,608 - INFO - 127.0.0.1 - - [04/Jun/2025 13:55:43] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-04 13:55:43,635 - INFO - 127.0.0.1 - - [04/Jun/2025 13:55:43] "[36mGET /static/images/Benefits%20of%20Business%20Intelligence%20Software%20Tools.jpeg HTTP/1.1[0m" 304 -
+2025-06-04 13:56:12,838 - INFO - 127.0.0.1 - - [04/Jun/2025 13:56:12] "GET /welcome HTTP/1.1" 200 -
+2025-06-04 13:56:12,918 - INFO - 127.0.0.1 - - [04/Jun/2025 13:56:12] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-04 13:56:12,926 - INFO - 127.0.0.1 - - [04/Jun/2025 13:56:12] "[36mGET /static/images/crm_name-removebg-preview.png HTTP/1.1[0m" 304 -
+2025-06-04 13:58:59,686 - INFO - 127.0.0.1 - - [04/Jun/2025 13:58:59] "GET /welcome HTTP/1.1" 200 -
+2025-06-04 13:58:59,749 - INFO - 127.0.0.1 - - [04/Jun/2025 13:58:59] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-04 13:58:59,753 - INFO - 127.0.0.1 - - [04/Jun/2025 13:58:59] "[36mGET /static/images/crm_name-removebg-preview.png HTTP/1.1[0m" 304 -
+2025-06-04 13:59:05,796 - INFO - 127.0.0.1 - - [04/Jun/2025 13:59:05] "GET /welcome HTTP/1.1" 200 -
+2025-06-04 13:59:05,867 - INFO - 127.0.0.1 - - [04/Jun/2025 13:59:05] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-04 13:59:05,872 - INFO - 127.0.0.1 - - [04/Jun/2025 13:59:05] "[36mGET /static/images/crm_name-removebg-preview.png HTTP/1.1[0m" 304 -
+2025-06-04 13:59:13,501 - INFO - 127.0.0.1 - - [04/Jun/2025 13:59:13] "[32mGET / HTTP/1.1[0m" 302 -
+2025-06-04 13:59:13,520 - INFO - 127.0.0.1 - - [04/Jun/2025 13:59:13] "GET /login HTTP/1.1" 200 -
+2025-06-04 13:59:13,627 - INFO - 127.0.0.1 - - [04/Jun/2025 13:59:13] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-04 13:59:13,632 - INFO - 127.0.0.1 - - [04/Jun/2025 13:59:13] "[36mGET /static/images/Benefits%20of%20Business%20Intelligence%20Software%20Tools.jpeg HTTP/1.1[0m" 304 -
+2025-06-04 13:59:24,673 - INFO - 127.0.0.1 - - [04/Jun/2025 13:59:24] "[32mGET /users HTTP/1.1[0m" 302 -
+2025-06-04 13:59:24,688 - INFO - 127.0.0.1 - - [04/Jun/2025 13:59:24] "GET /login HTTP/1.1" 200 -
+2025-06-04 13:59:24,770 - INFO - 127.0.0.1 - - [04/Jun/2025 13:59:24] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-04 13:59:24,811 - INFO - 127.0.0.1 - - [04/Jun/2025 13:59:24] "[36mGET /static/images/Benefits%20of%20Business%20Intelligence%20Software%20Tools.jpeg HTTP/1.1[0m" 304 -
+2025-06-04 13:59:25,923 - INFO - 127.0.0.1 - - [04/Jun/2025 13:59:25] "[32mGET / HTTP/1.1[0m" 302 -
+2025-06-04 13:59:25,950 - INFO - 127.0.0.1 - - [04/Jun/2025 13:59:25] "GET /login HTTP/1.1" 200 -
+2025-06-04 13:59:26,020 - INFO - 127.0.0.1 - - [04/Jun/2025 13:59:26] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-04 13:59:26,041 - INFO - 127.0.0.1 - - [04/Jun/2025 13:59:26] "[36mGET /static/images/Benefits%20of%20Business%20Intelligence%20Software%20Tools.jpeg HTTP/1.1[0m" 304 -
+2025-06-04 13:59:28,537 - INFO - 127.0.0.1 - - [04/Jun/2025 13:59:28] "GET /welcome HTTP/1.1" 200 -
+2025-06-04 13:59:28,630 - INFO - 127.0.0.1 - - [04/Jun/2025 13:59:28] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-04 13:59:28,637 - INFO - 127.0.0.1 - - [04/Jun/2025 13:59:28] "[36mGET /static/images/crm_name-removebg-preview.png HTTP/1.1[0m" 304 -
+2025-06-04 13:59:37,445 - INFO - 127.0.0.1 - - [04/Jun/2025 13:59:37] "GET /welcome HTTP/1.1" 200 -
+2025-06-04 13:59:37,526 - INFO - 127.0.0.1 - - [04/Jun/2025 13:59:37] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-04 13:59:37,529 - INFO - 127.0.0.1 - - [04/Jun/2025 13:59:37] "[36mGET /static/images/crm_name-removebg-preview.png HTTP/1.1[0m" 304 -
+2025-06-04 13:59:46,771 - INFO - 127.0.0.1 - - [04/Jun/2025 13:59:46] "[32mGET / HTTP/1.1[0m" 302 -
+2025-06-04 13:59:46,794 - INFO - 127.0.0.1 - - [04/Jun/2025 13:59:46] "GET /login HTTP/1.1" 200 -
+2025-06-04 13:59:46,901 - INFO - 127.0.0.1 - - [04/Jun/2025 13:59:46] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-04 13:59:46,911 - INFO - 127.0.0.1 - - [04/Jun/2025 13:59:46] "[36mGET /static/images/Benefits%20of%20Business%20Intelligence%20Software%20Tools.jpeg HTTP/1.1[0m" 304 -
+2025-06-04 13:59:58,620 - INFO - Login successful for marium@gmail.com (role: Manager)
+2025-06-04 13:59:58,621 - INFO - 127.0.0.1 - - [04/Jun/2025 13:59:58] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-06-04 13:59:58,754 - INFO - 127.0.0.1 - - [04/Jun/2025 13:59:58] "GET / HTTP/1.1" 200 -
+2025-06-04 13:59:58,833 - INFO - 127.0.0.1 - - [04/Jun/2025 13:59:58] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-04 13:59:59,055 - INFO - 127.0.0.1 - - [04/Jun/2025 13:59:59] "GET /opportunities/summary.json HTTP/1.1" 200 -
+2025-06-04 13:59:59,064 - INFO - 127.0.0.1 - - [04/Jun/2025 13:59:59] "GET /leads/summary.json HTTP/1.1" 200 -
+2025-06-04 13:59:59,100 - INFO - 127.0.0.1 - - [04/Jun/2025 13:59:59] "GET /tickets/summary.json HTTP/1.1" 200 -
+2025-06-04 13:59:59,101 - INFO - 127.0.0.1 - - [04/Jun/2025 13:59:59] "GET /tasks/summary.json HTTP/1.1" 200 -
+2025-06-04 14:00:06,648 - INFO - 127.0.0.1 - - [04/Jun/2025 14:00:06] "GET / HTTP/1.1" 200 -
+2025-06-04 14:00:06,694 - INFO - 127.0.0.1 - - [04/Jun/2025 14:00:06] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-04 14:00:06,896 - INFO - 127.0.0.1 - - [04/Jun/2025 14:00:06] "GET /opportunities/summary.json HTTP/1.1" 200 -
+2025-06-04 14:00:06,930 - INFO - 127.0.0.1 - - [04/Jun/2025 14:00:06] "GET /leads/summary.json HTTP/1.1" 200 -
+2025-06-04 14:00:06,931 - INFO - 127.0.0.1 - - [04/Jun/2025 14:00:06] "GET /tickets/summary.json HTTP/1.1" 200 -
+2025-06-04 14:00:06,933 - INFO - 127.0.0.1 - - [04/Jun/2025 14:00:06] "GET /tasks/summary.json HTTP/1.1" 200 -
+2025-06-04 14:00:10,492 - INFO - 127.0.0.1 - - [04/Jun/2025 14:00:10] "GET /users HTTP/1.1" 200 -
+2025-06-04 14:00:10,585 - INFO - 127.0.0.1 - - [04/Jun/2025 14:00:10] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-04 14:00:11,603 - INFO - 127.0.0.1 - - [04/Jun/2025 14:00:11] "GET /accounts HTTP/1.1" 200 -
+2025-06-04 14:00:11,648 - INFO - 127.0.0.1 - - [04/Jun/2025 14:00:11] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-04 14:00:13,154 - INFO - 127.0.0.1 - - [04/Jun/2025 14:00:13] "GET /contacts HTTP/1.1" 200 -
+2025-06-04 14:00:13,215 - INFO - 127.0.0.1 - - [04/Jun/2025 14:00:13] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-04 14:00:14,486 - INFO - 127.0.0.1 - - [04/Jun/2025 14:00:14] "GET /products HTTP/1.1" 200 -
+2025-06-04 14:00:14,608 - INFO - 127.0.0.1 - - [04/Jun/2025 14:00:14] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-04 14:00:16,440 - INFO - 127.0.0.1 - - [04/Jun/2025 14:00:16] "GET /leads HTTP/1.1" 200 -
+2025-06-04 14:00:16,517 - INFO - 127.0.0.1 - - [04/Jun/2025 14:00:16] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-04 14:00:17,493 - INFO - 127.0.0.1 - - [04/Jun/2025 14:00:17] "GET /opportunities HTTP/1.1" 200 -
+2025-06-04 14:00:17,613 - INFO - 127.0.0.1 - - [04/Jun/2025 14:00:17] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-04 14:00:18,890 - INFO - 127.0.0.1 - - [04/Jun/2025 14:00:18] "GET /quotes HTTP/1.1" 200 -
+2025-06-04 14:00:18,950 - INFO - 127.0.0.1 - - [04/Jun/2025 14:00:18] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-04 14:00:20,149 - INFO - 127.0.0.1 - - [04/Jun/2025 14:00:20] "GET /tasks HTTP/1.1" 200 -
+2025-06-04 14:00:20,202 - INFO - 127.0.0.1 - - [04/Jun/2025 14:00:20] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-04 14:00:21,429 - INFO - 127.0.0.1 - - [04/Jun/2025 14:00:21] "GET /tickets HTTP/1.1" 200 -
+2025-06-04 14:00:21,566 - INFO - 127.0.0.1 - - [04/Jun/2025 14:00:21] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-04 14:00:24,989 - INFO - 127.0.0.1 - - [04/Jun/2025 14:00:24] "GET /users HTTP/1.1" 200 -
+2025-06-04 14:00:25,036 - INFO - 127.0.0.1 - - [04/Jun/2025 14:00:25] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-04 14:00:27,137 - INFO - 127.0.0.1 - - [04/Jun/2025 14:00:27] "GET /add_user HTTP/1.1" 200 -
+2025-06-04 14:00:27,244 - INFO - 127.0.0.1 - - [04/Jun/2025 14:00:27] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-04 14:00:42,851 - INFO - 127.0.0.1 - - [04/Jun/2025 14:00:42] "[32mPOST /add_user HTTP/1.1[0m" 302 -
+2025-06-04 14:00:43,012 - INFO - 127.0.0.1 - - [04/Jun/2025 14:00:43] "GET /users HTTP/1.1" 200 -
+2025-06-04 14:00:43,095 - INFO - 127.0.0.1 - - [04/Jun/2025 14:00:43] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-04 14:00:53,740 - INFO - 127.0.0.1 - - [04/Jun/2025 14:00:53] "[32mPOST /users/delete/15 HTTP/1.1[0m" 302 -
+2025-06-04 14:00:53,858 - INFO - 127.0.0.1 - - [04/Jun/2025 14:00:53] "GET /users HTTP/1.1" 200 -
+2025-06-04 14:00:53,898 - INFO - 127.0.0.1 - - [04/Jun/2025 14:00:53] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-04 14:01:15,926 - INFO - 127.0.0.1 - - [04/Jun/2025 14:01:15] "GET / HTTP/1.1" 200 -
+2025-06-04 14:01:15,969 - INFO - 127.0.0.1 - - [04/Jun/2025 14:01:15] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-04 14:01:16,162 - INFO - 127.0.0.1 - - [04/Jun/2025 14:01:16] "GET /opportunities/summary.json HTTP/1.1" 200 -
+2025-06-04 14:01:16,171 - INFO - 127.0.0.1 - - [04/Jun/2025 14:01:16] "GET /leads/summary.json HTTP/1.1" 200 -
+2025-06-04 14:01:16,174 - INFO - 127.0.0.1 - - [04/Jun/2025 14:01:16] "GET /tickets/summary.json HTTP/1.1" 200 -
+2025-06-04 14:01:16,275 - INFO - 127.0.0.1 - - [04/Jun/2025 14:01:16] "GET /tasks/summary.json HTTP/1.1" 200 -
+2025-06-04 14:01:17,365 - INFO - 127.0.0.1 - - [04/Jun/2025 14:01:17] "[32mGET /logout HTTP/1.1[0m" 302 -
+2025-06-04 14:01:17,377 - INFO - 127.0.0.1 - - [04/Jun/2025 14:01:17] "GET /login HTTP/1.1" 200 -
+2025-06-04 14:01:17,442 - INFO - 127.0.0.1 - - [04/Jun/2025 14:01:17] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-04 14:01:17,447 - INFO - 127.0.0.1 - - [04/Jun/2025 14:01:17] "[36mGET /static/images/Benefits%20of%20Business%20Intelligence%20Software%20Tools.jpeg HTTP/1.1[0m" 304 -
+2025-06-04 14:01:39,436 - INFO - 127.0.0.1 - - [04/Jun/2025 14:01:39] "GET /welcome HTTP/1.1" 200 -
+2025-06-04 14:01:39,489 - INFO - 127.0.0.1 - - [04/Jun/2025 14:01:39] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-04 14:01:39,490 - INFO - 127.0.0.1 - - [04/Jun/2025 14:01:39] "[36mGET /static/images/crm_name-removebg-preview.png HTTP/1.1[0m" 304 -
+2025-06-04 14:01:47,561 - INFO - 127.0.0.1 - - [04/Jun/2025 14:01:47] "[32mGET / HTTP/1.1[0m" 302 -
+2025-06-04 14:01:47,575 - INFO - 127.0.0.1 - - [04/Jun/2025 14:01:47] "GET /login HTTP/1.1" 200 -
+2025-06-04 14:01:47,691 - INFO - 127.0.0.1 - - [04/Jun/2025 14:01:47] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-04 14:01:47,703 - INFO - 127.0.0.1 - - [04/Jun/2025 14:01:47] "[36mGET /static/images/Benefits%20of%20Business%20Intelligence%20Software%20Tools.jpeg HTTP/1.1[0m" 304 -
+2025-06-04 14:01:58,511 - INFO - Login successful for marium@gmail.com (role: Manager)
+2025-06-04 14:01:58,512 - INFO - 127.0.0.1 - - [04/Jun/2025 14:01:58] "[32mPOST /login HTTP/1.1[0m" 302 -
+2025-06-04 14:01:58,675 - INFO - 127.0.0.1 - - [04/Jun/2025 14:01:58] "GET / HTTP/1.1" 200 -
+2025-06-04 14:01:58,752 - INFO - 127.0.0.1 - - [04/Jun/2025 14:01:58] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-04 14:01:58,973 - INFO - 127.0.0.1 - - [04/Jun/2025 14:01:58] "GET /opportunities/summary.json HTTP/1.1" 200 -
+2025-06-04 14:01:58,974 - INFO - 127.0.0.1 - - [04/Jun/2025 14:01:58] "GET /tickets/summary.json HTTP/1.1" 200 -
+2025-06-04 14:01:58,981 - INFO - 127.0.0.1 - - [04/Jun/2025 14:01:58] "GET /leads/summary.json HTTP/1.1" 200 -
+2025-06-04 14:01:58,998 - INFO - 127.0.0.1 - - [04/Jun/2025 14:01:58] "GET /tasks/summary.json HTTP/1.1" 200 -
+2025-06-04 14:02:06,111 - INFO - 127.0.0.1 - - [04/Jun/2025 14:02:06] "GET / HTTP/1.1" 200 -
+2025-06-04 14:02:06,155 - INFO - 127.0.0.1 - - [04/Jun/2025 14:02:06] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-04 14:02:06,326 - INFO - 127.0.0.1 - - [04/Jun/2025 14:02:06] "GET /opportunities/summary.json HTTP/1.1" 200 -
+2025-06-04 14:02:06,341 - INFO - 127.0.0.1 - - [04/Jun/2025 14:02:06] "GET /leads/summary.json HTTP/1.1" 200 -
+2025-06-04 14:02:06,362 - INFO - 127.0.0.1 - - [04/Jun/2025 14:02:06] "GET /tickets/summary.json HTTP/1.1" 200 -
+2025-06-04 14:02:06,377 - INFO - 127.0.0.1 - - [04/Jun/2025 14:02:06] "GET /tasks/summary.json HTTP/1.1" 200 -
+2025-06-04 14:02:09,049 - INFO - 127.0.0.1 - - [04/Jun/2025 14:02:09] "GET /users HTTP/1.1" 200 -
+2025-06-04 14:02:09,138 - INFO - 127.0.0.1 - - [04/Jun/2025 14:02:09] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-04 14:02:11,825 - INFO - 127.0.0.1 - - [04/Jun/2025 14:02:11] "GET /accounts HTTP/1.1" 200 -
+2025-06-04 14:02:11,903 - INFO - 127.0.0.1 - - [04/Jun/2025 14:02:11] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-04 14:02:13,108 - INFO - 127.0.0.1 - - [04/Jun/2025 14:02:13] "GET /contacts HTTP/1.1" 200 -
+2025-06-04 14:02:13,201 - INFO - 127.0.0.1 - - [04/Jun/2025 14:02:13] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-04 14:02:14,516 - INFO - 127.0.0.1 - - [04/Jun/2025 14:02:14] "GET /products HTTP/1.1" 200 -
+2025-06-04 14:02:14,624 - INFO - 127.0.0.1 - - [04/Jun/2025 14:02:14] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-04 14:02:15,559 - INFO - 127.0.0.1 - - [04/Jun/2025 14:02:15] "GET /leads HTTP/1.1" 200 -
+2025-06-04 14:02:15,616 - INFO - 127.0.0.1 - - [04/Jun/2025 14:02:15] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-04 14:02:16,649 - INFO - 127.0.0.1 - - [04/Jun/2025 14:02:16] "GET /opportunities HTTP/1.1" 200 -
+2025-06-04 14:02:16,699 - INFO - 127.0.0.1 - - [04/Jun/2025 14:02:16] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-04 14:02:18,004 - INFO - 127.0.0.1 - - [04/Jun/2025 14:02:18] "GET /quotes HTTP/1.1" 200 -
+2025-06-04 14:02:18,057 - INFO - 127.0.0.1 - - [04/Jun/2025 14:02:18] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-04 14:02:19,049 - INFO - 127.0.0.1 - - [04/Jun/2025 14:02:19] "GET /tasks HTTP/1.1" 200 -
+2025-06-04 14:02:19,125 - INFO - 127.0.0.1 - - [04/Jun/2025 14:02:19] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-04 14:02:20,167 - INFO - 127.0.0.1 - - [04/Jun/2025 14:02:20] "GET /tickets HTTP/1.1" 200 -
+2025-06-04 14:02:20,251 - INFO - 127.0.0.1 - - [04/Jun/2025 14:02:20] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-04 14:02:22,473 - INFO - 127.0.0.1 - - [04/Jun/2025 14:02:22] "GET /users HTTP/1.1" 200 -
+2025-06-04 14:02:22,517 - INFO - 127.0.0.1 - - [04/Jun/2025 14:02:22] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-04 14:02:23,664 - INFO - 127.0.0.1 - - [04/Jun/2025 14:02:23] "GET /add_user HTTP/1.1" 200 -
+2025-06-04 14:02:23,717 - INFO - 127.0.0.1 - - [04/Jun/2025 14:02:23] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-04 14:02:38,777 - INFO - 127.0.0.1 - - [04/Jun/2025 14:02:38] "[32mPOST /add_user HTTP/1.1[0m" 302 -
+2025-06-04 14:02:38,916 - INFO - 127.0.0.1 - - [04/Jun/2025 14:02:38] "GET /users HTTP/1.1" 200 -
+2025-06-04 14:02:38,997 - INFO - 127.0.0.1 - - [04/Jun/2025 14:02:38] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-04 14:02:48,376 - INFO - 127.0.0.1 - - [04/Jun/2025 14:02:48] "[32mPOST /users/delete/16 HTTP/1.1[0m" 302 -
+2025-06-04 14:02:48,675 - INFO - 127.0.0.1 - - [04/Jun/2025 14:02:48] "GET /users HTTP/1.1" 200 -
+2025-06-04 14:02:48,739 - INFO - 127.0.0.1 - - [04/Jun/2025 14:02:48] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-04 14:02:51,335 - INFO - 127.0.0.1 - - [04/Jun/2025 14:02:51] "GET /accounts HTTP/1.1" 200 -
+2025-06-04 14:02:51,393 - INFO - 127.0.0.1 - - [04/Jun/2025 14:02:51] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-04 14:02:52,525 - INFO - 127.0.0.1 - - [04/Jun/2025 14:02:52] "GET /contacts HTTP/1.1" 200 -
+2025-06-04 14:02:52,633 - INFO - 127.0.0.1 - - [04/Jun/2025 14:02:52] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-04 14:02:56,463 - INFO - 127.0.0.1 - - [04/Jun/2025 14:02:56] "GET /products HTTP/1.1" 200 -
+2025-06-04 14:02:56,551 - INFO - 127.0.0.1 - - [04/Jun/2025 14:02:56] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-04 14:03:00,441 - INFO - 127.0.0.1 - - [04/Jun/2025 14:03:00] "GET /welcome HTTP/1.1" 200 -
+2025-06-04 14:03:00,559 - INFO - 127.0.0.1 - - [04/Jun/2025 14:03:00] "[36mGET /static/images/vecteezy_customer-service-modern-icon-illustration_39631057.png HTTP/1.1[0m" 304 -
+2025-06-04 14:03:00,571 - INFO - 127.0.0.1 - - [04/Jun/2025 14:03:00] "[36mGET /static/images/crm_name-removebg-preview.png HTTP/1.1[0m" 304 -
