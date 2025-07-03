@@ -4,9 +4,12 @@ from decimal import Decimal
 import hashlib
 import psycopg2
 import logging
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 app = Flask(__name__)
-app.secret_key = 'crm_project'
 
 # Set up logging
 logging.basicConfig(
@@ -36,12 +39,15 @@ def role_required(required_role):
         return wrapper
     return decorator
 
+app.secret_key = os.getenv('SECRET_KEY')
+
+
 def get_db_connection():
     return psycopg2.connect(
-        dbname="CRM",
-        user="postgres",
-        password="admin",
-        host="localhost"
+        dbname=os.getenv("DB_NAME"),
+        user=os.getenv("DB_USER"),
+        password=os.getenv("DB_PASSWORD"),
+        host=os.getenv("DB_HOST")
     )
 
 @app.route('/')
