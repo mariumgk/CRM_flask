@@ -31,7 +31,7 @@ A role-based Customer Relationship Management (CRM) system built with Flask, Pos
 ### 1. Clone the Repo
 
 ```bash
-git clone 
+git clone https://github.com/mariumgk/CRM_flask.git
 cd crm-system
 ````
 
@@ -83,6 +83,6 @@ python app.py
 
 ## 👩‍💻 Author
 
-Built by [MariumImran](https://github.com/yourusername)
+Built by [MariumImran](https://github.com/mariumgk)
 Contact: marium.imranrauf@gmail.com
 
